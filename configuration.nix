@@ -65,10 +65,15 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.jane = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  # };
+  users.users.root = {
+    hashedPassword = "!";
+  };
+  users.users.aroussel = {
+    isNormalUser = true;
+    description = "Anthony Roussel";
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    passwordFile = "/etc/nixos/passwords/aroussel";
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
