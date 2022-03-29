@@ -77,6 +77,8 @@
     wget
     curl
     git
+    htop
+    bash-completion
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
