@@ -10,9 +10,23 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Use the Grub2 EFI boot loader.
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+      };
+    };
+    plymouth = {
+     enable = true;
+    };
+  };
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
