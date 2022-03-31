@@ -71,7 +71,9 @@
   users.users.aroussel = {
     isNormalUser = true;
     description = "Anthony Roussel";
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ];
+    # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
     passwordFile = "/etc/nixos/passwords/aroussel";
   };
 
