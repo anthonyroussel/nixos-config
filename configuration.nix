@@ -70,6 +70,7 @@
     git
     htop
     bash-completion
+    gnupg
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
