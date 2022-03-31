@@ -99,6 +99,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    permitRootLogin = "no";
   };
 
   # Open ports in the firewall.
