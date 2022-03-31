@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -71,6 +71,15 @@
     htop
     bash-completion
     gnupg
+
+    # Fonts
+    corefonts
+    dejavu_fonts
+  ];
+
+  # Allow installation of unfree packages
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "corefonts"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
