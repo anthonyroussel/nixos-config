@@ -90,6 +90,11 @@
   #   enableSSHSupport = true;
   # };
 
+  # Set vim as the default editor
+  programs.vim = {
+    defaultEditor = true;
+  };
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
