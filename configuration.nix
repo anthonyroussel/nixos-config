@@ -72,9 +72,26 @@
     bash-completion
     gnupg
 
+    # Browser
+    chromium
+
     # Fonts
     corefonts
     dejavu_fonts
+
+    # Password management
+    gopass
+
+    # Dotfiles
+    chezmoi
+
+    # Developer tools
+    vscodium
+
+    # System tools
+    ntfs3g # MS-NTFS driver
+    efibootmgr # EFI boot manager
+    killall
   ];
 
   # Allow installation of unfree packages
