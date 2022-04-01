@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
+      ./nftables.nix
     ];
 
   # Use the Grub2 EFI boot loader.
@@ -111,17 +112,7 @@
     defaultEditor = true;
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "no";
-  };
 
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 22 ];
-  };
 
   # Install Docker
   virtualisation.docker.enable = true;
