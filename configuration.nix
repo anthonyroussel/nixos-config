@@ -75,6 +75,9 @@
     # Browser
     chromium
 
+    # Messaging
+    discord
+
     # Fonts
     corefonts
     dejavu_fonts
@@ -97,6 +100,7 @@
   # Allow installation of unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "corefonts"
+    "discord"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
