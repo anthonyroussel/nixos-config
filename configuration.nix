@@ -55,7 +55,7 @@
     isNormalUser = true;
     description = "Anthony Roussel";
     # Enable ‘sudo’ for the user.
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
     passwordFile = "/etc/nixos/passwords/aroussel";
   };
@@ -122,6 +122,9 @@
     enable = true;
     allowedTCPPorts = [ 22 ];
   };
+
+  # Install Docker
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
