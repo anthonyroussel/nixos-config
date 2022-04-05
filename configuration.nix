@@ -104,19 +104,38 @@
     corefonts
     dejavu_fonts
 
+    # Desktop
+    gnome.gnome-tweaks
+
     # Password management
     gopass
-
-    # Dotfiles
-    chezmoi
+    gopass-jsonapi
 
     # Developer tools
     vscodium
+    jq
+    google-cloud-sdk
+    tmux
+
+    # Node.js
+    nodejs-17_x
+    nodePackages.yarn
+
+    # Python
+    python3
+    python3Packages.pip
+    pipenv
+
+    # Network tools
+    dig # DNS lookup utility
+    mtr # My Traceroute
 
     # System tools
     ntfs3g # MS-NTFS driver
     efibootmgr # EFI boot manager
     killall
+    unzip
+    file
   ];
 
   # Allow installation of unfree packages
