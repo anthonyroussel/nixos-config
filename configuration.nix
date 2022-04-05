@@ -6,7 +6,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # https://github.com/NixOS/nixos-hardware
+      <nixos-hardware/dell/xps/15-9560/nvidia>
+      <nixos-hardware/common/pc/laptop/ssd>
+      <nixos-hardware/common/cpu/intel/kaby-lake>
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
       ./shadow.nix
@@ -29,6 +34,7 @@
     };
     kernelPackages = pkgs.linuxPackages_5_17;
   };
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -118,6 +124,8 @@
     "corefonts"
     "discord"
     "shadow-prod"
+    "nvidia-x11"
+    "nvidia-settings"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
