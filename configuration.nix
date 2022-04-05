@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
+      ./shadow.nix
       ./nftables.nix
     ];
 
@@ -115,6 +116,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "corefonts"
     "discord"
+    "shadow-prod"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
