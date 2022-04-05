@@ -11,6 +11,7 @@
       ./desktop.nix
       ./shadow.nix
       ./nftables.nix
+      ./tlp.nix
     ];
 
   # Use the Grub2 EFI boot loader.
