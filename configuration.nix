@@ -25,9 +25,7 @@
         efiSupport = true;
       };
     };
-    plymouth = {
-      enable = true;
-    };
+    kernelPackages = pkgs.linuxPackages_5_17;
   };
 
   # networking.hostName = "nixos"; # Define your hostname.
