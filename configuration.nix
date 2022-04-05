@@ -47,16 +47,32 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.root = {
-    hashedPassword = "!";
-  };
-  users.users.aroussel = {
-    isNormalUser = true;
-    description = "Anthony Roussel";
-    # Enable ‘sudo’ for the user.
-    extraGroups = [ "wheel" "docker" ];
-    # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
-    passwordFile = "/etc/nixos/passwords/aroussel";
+  users = {
+    users = {
+      root = {
+        # Lock password of the root account.
+        hashedPassword = "!";
+      };
+      aroussel = {
+        uid = 1000;
+        isNormalUser = true;
+        group = "aroussel";
+        description = "Anthony Roussel";
+        # Enable ‘sudo’ for the user.
+        extraGroups = [ "wheel" "docker" ];
+        # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
+        passwordFile = "/etc/nixos/passwords/aroussel";
+      };
+    };
+    groups = {
+      aroussel = {
+        gid = 1000;
+        name = "aroussel";
+        members = [ "aroussel" ];
+      };
+    };
+    # Change default system shell to `zsh`
+    defaultUserShell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
@@ -114,6 +130,14 @@
     defaultEditor = true;
   };
 
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "python" "man" ];
+      theme = "agnoster";
+    };
+  };
 
 
   # Install Docker
