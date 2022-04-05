@@ -141,6 +141,10 @@
     };
   };
 
+  # Enable the Firmware update manager service.
+  services.fwupd = {
+    enable = true;
+  };
 
   # Install Docker
   virtualisation.docker.enable = true;
