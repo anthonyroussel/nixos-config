@@ -34,7 +34,6 @@
     };
     kernelPackages = pkgs.linuxPackages_5_17;
   };
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
