@@ -19,6 +19,11 @@
       ./tlp.nix
     ];
 
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = "experimental-features = nix-command flakes";
+  };
+
   # Use the Grub2 EFI boot loader.
   boot = {
     loader = {
