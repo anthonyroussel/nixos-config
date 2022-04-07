@@ -89,6 +89,9 @@
   # Enable libpam-mount for cryptHomeLuks
   security.pam.mount.enable = true;
 
+  # Include ~/bin/ in $PATH.
+  environment.homeBinInPath = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
