@@ -2,25 +2,29 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
     [
-      # https://github.com/NixOS/nixos-hardware
-      <nixos-hardware/dell/xps/15-9560/nvidia>
-      <nixos-hardware/common/pc/laptop/ssd>
-      <nixos-hardware/common/cpu/intel/kaby-lake>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
       ./shadow.nix
-      ./wireless.nix
       ./nftables.nix
       ./tlp.nix
       ./yubikey.nix
+
+      # https://github.com/NixOS/nixos-hardware
+      "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
+      "${inputs.nixos-hardware}/common/pc/laptop/ssd"
+      "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
+
+      # Import secrets
+      "${inputs.secrets}/wireless.nix"
     ];
 
+  # Enable experimental support for Nix flakes
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
@@ -77,7 +81,7 @@
         # Enable ‘sudo’ for the user.
         extraGroups = [ "wheel" "docker" ];
         # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
-        passwordFile = "/etc/nixos/passwords/aroussel";
+        passwordFile = "${inputs.secrets}/files/etc/shadow.d/aroussel";
         # Path to encrypted luks device that contains the user's home directory.
         cryptHomeLuks = "/dev/pool/home-aroussel";
       };

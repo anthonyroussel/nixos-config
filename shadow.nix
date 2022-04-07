@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [
-    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.0.5"; } + "/import/system.nix")
+    "${inputs.shadow}/import/system.nix"
   ];
 
   programs.shadow-client = {

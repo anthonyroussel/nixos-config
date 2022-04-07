@@ -1,11 +1,13 @@
 # NixOS configuration
 
-## Add channels
+## Apply
 
-```bash
-# nix-channel --add https://nixos.org/channels/nixos-21.11 nixos
-# nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+```
+sudo nixos-rebuild switch --impure
 ```
 
+## Sources
+
 See https://github.com/NixOS/nixos-hardware repository.
+
 This repository contains a collection of NixOS modules covering hardware quirks.
