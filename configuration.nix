@@ -15,6 +15,7 @@
       ./hardware-configuration.nix
       ./desktop.nix
       ./shadow.nix
+      ./wireless.nix
       ./nftables.nix
       ./tlp.nix
     ];
