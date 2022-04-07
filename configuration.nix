@@ -71,6 +71,8 @@
         extraGroups = [ "wheel" "docker" ];
         # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
         passwordFile = "/etc/nixos/passwords/aroussel";
+        # Path to encrypted luks device that contains the user's home directory.
+        cryptHomeLuks = "/dev/pool/home-aroussel";
       };
     };
     groups = {
@@ -83,6 +85,9 @@
     # Change default system shell to `zsh`
     defaultUserShell = pkgs.zsh;
   };
+
+  # Enable libpam-mount for cryptHomeLuks
+  security.pam.mount.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -134,6 +139,7 @@
     # System tools
     ntfs3g # MS-NTFS driver
     efibootmgr # EFI boot manager
+    cryptsetup
     killall
     unzip
     file
