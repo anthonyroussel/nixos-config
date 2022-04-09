@@ -132,6 +132,7 @@
     jq
     google-cloud-sdk
     tmux
+    nixpkgs-fmt
 
     # Node.js
     nodejs-17_x
