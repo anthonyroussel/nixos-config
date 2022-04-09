@@ -18,6 +18,7 @@
       ./wireless.nix
       ./nftables.nix
       ./tlp.nix
+      ./yubikey.nix
     ];
 
   nix = {
