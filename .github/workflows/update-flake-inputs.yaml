@@ -1,0 +1,33 @@
+name: Update flake.lock
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  update-nixpkgs:
+    name: Update Flake inputs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Update Flake inputs
+        run: nix flake lock --update-input nixpkgs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
+          commit-message: "Update flake.lock"
+          title: "Update flake.lock"
