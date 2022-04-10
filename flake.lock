@@ -57,16 +57,16 @@
     "shadow": {
       "flake": false,
       "locked": {
-        "lastModified": 1649455855,
-        "narHash": "sha256-7DKCS6O8IYPQ10ZHlP16LFOV6pNtR7I4dS1r1C4tMRY=",
+        "lastModified": 1649631233,
+        "narHash": "sha256-P4CQW1/gPB1p17MVsOwlk+PgjkumVwvgfy1R7reCSxQ=",
         "owner": "anthonyroussel",
         "repo": "shadow-nix",
-        "rev": "5ac7e05e963c5711eb8cd71e1b2ad35f99550866",
+        "rev": "3cf5bf2d0065e97e76e2a9f215ec8a3d020e2a11",
         "type": "github"
       },
       "original": {
         "owner": "anthonyroussel",
-        "ref": "v1.0.5",
+        "ref": "v1.0.6",
         "repo": "shadow-nix",
         "type": "github"
       }

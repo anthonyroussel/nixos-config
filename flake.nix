@@ -12,7 +12,7 @@
       url = "git+file:///persist/secrets/.git";
     };
     shadow = {
-      url = "github:anthonyroussel/shadow-nix/v1.0.5";
+      url = "github:anthonyroussel/shadow-nix/v1.0.6";
       flake = false;
     };
   };
