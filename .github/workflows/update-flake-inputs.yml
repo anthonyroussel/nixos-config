@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
 
       - name: Update Flake inputs
-        run: nix flake lock --update-input nixpkgs
+        run: nix flake lock --update-input nixpkgs --update-input nixos-hardware
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
