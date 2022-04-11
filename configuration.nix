@@ -153,6 +153,9 @@
     killall
     unzip
     file
+    pciutils # lspci
+    usbutils # lsusb
+    openssl
   ];
 
   # Allow installation of unfree packages
