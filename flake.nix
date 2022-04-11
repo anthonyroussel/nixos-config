@@ -17,10 +17,20 @@
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      modules = [ ./configuration.nix ];
+      modules = [
+        # https://github.com/NixOS/nixos-hardware
+        #
+        nixos-hardware.nixosModules.dell-xps-15-9560-nvidia
+        nixos-hardware.nixosModules.common-pc-laptop-ssd
+        nixos-hardware.nixosModules.common-cpu-intel-kaby-lake
+
+        # System-custom configuration file
+        #
+        ./configuration.nix
+      ];
       specialArgs = { inherit inputs system; };
     };
 
