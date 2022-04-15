@@ -18,11 +18,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1649883785,
-        "narHash": "sha256-GhwcnCKisE5CKPU7YzTD1bwgTNmyokjl71ENIVAcnR8=",
+        "lastModified": 1649944829,
+        "narHash": "sha256-wjOgLfjCdyoRamMOrVJceeDJk4LvJsQOxBoT3k16/7Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a62ce97f92b8b197ab6f278132535c1abf713ba0",
+        "rev": "2f06b87f64bc06229e05045853e0876666e1b023",
         "type": "github"
       },
       "original": {
@@ -41,11 +41,11 @@
     },
     "secrets": {
       "locked": {
-        "lastModified": 1649686653,
-        "narHash": "sha256-xClYCm2D5hTynVzMC9AgEZampMZSBNXvGCPMzn9L2JQ=",
+        "lastModified": 1649939873,
+        "narHash": "sha256-46M2VE1LQZNeiGsdW2Fy72X+33QdghaXgeKEL2yKYfQ=",
         "ref": "master",
-        "rev": "49f4fd90d1593776fb3ff07c426fe3d4e6338b03",
-        "revCount": 4,
+        "rev": "b0665b93d18c5f46c2c45f55ba4f66dd9191095d",
+        "revCount": 5,
         "type": "git",
         "url": "file:///persist/secrets/.git"
       },
