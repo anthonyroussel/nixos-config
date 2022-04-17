@@ -31,3 +31,5 @@ jobs:
           author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
           commit-message: "Update flake.lock"
           title: "Update flake.lock"
+          labels: dependencies
+          reviewers: anthonyroussel
