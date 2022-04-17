@@ -175,6 +175,14 @@
     enableSSHSupport = true;
   };
 
+  # Enable Git LFS (Large File Storage).
+  programs.git = {
+    enable = true;
+    lfs = {
+      enable = true;
+    };
+  };
+
   # Set vim as the default editor
   programs.vim = {
     defaultEditor = true;
