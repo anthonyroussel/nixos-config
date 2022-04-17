@@ -157,6 +157,8 @@
     usbutils # lsusb
     openssl
     borgbackup # Borg backup tool
+    tree
+    nload # Show the network usage
   ];
 
   # Allow installation of unfree packages
