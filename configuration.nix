@@ -156,6 +156,7 @@
     pciutils # lspci
     usbutils # lsusb
     openssl
+    borgbackup # Borg backup tool
   ];
 
   # Allow installation of unfree packages
