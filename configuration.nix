@@ -119,9 +119,6 @@
     corefonts
     dejavu_fonts
 
-    # Desktop
-    gnome.gnome-tweaks
-
     # Password management
     gopass
     gopass-jsonapi
