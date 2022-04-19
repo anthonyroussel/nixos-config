@@ -139,6 +139,9 @@
     python3Packages.pip
     pipenv
 
+    # Audio
+    vorbis-tools # OGG codec
+
     # Network tools
     dig # DNS lookup utility
     mtr # My Traceroute
