@@ -206,6 +206,11 @@
     enable = true;
   };
 
+  # Disable the Avahi mDNS daemon (useless).
+  services.avahi = {
+    enable = false;
+  };
+
   # Install Docker
   virtualisation.docker.enable = true;
 
