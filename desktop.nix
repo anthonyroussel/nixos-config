@@ -26,7 +26,10 @@
     gnomeExtensions.places-status-indicator
     gnomeExtensions.removable-drive-menu
     gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.user-themes
     gnomeExtensions.vitals
     gnomeExtensions.workspace-indicator
+
+    glxinfo
   ];
 }
