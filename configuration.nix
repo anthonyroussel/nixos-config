@@ -159,6 +159,7 @@
     borgbackup # Borg backup tool
     tree
     nload # Show the network usage
+    zbar # Barcode reader
   ];
 
   # Allow installation of unfree packages
