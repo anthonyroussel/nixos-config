@@ -1,4 +1,4 @@
-name: Update flake.lock
+name: Update Flake inputs
 
 on:
   workflow_dispatch:
@@ -7,20 +7,19 @@ on:
 
 jobs:
   update-nixpkgs:
-    name: Update Flake inputs
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Install Nix
         uses: cachix/install-nix-action@v17
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
-
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Update Flake inputs
         run: nix flake lock --update-input nixpkgs --update-input nixos-hardware

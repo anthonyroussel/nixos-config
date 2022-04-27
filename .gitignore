@@ -1,0 +1,2 @@
+# Exclude `nix build` output directory
+result
