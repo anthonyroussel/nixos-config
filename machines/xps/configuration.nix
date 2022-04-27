@@ -2,18 +2,25 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, nixos-hardware, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./desktop.nix
-      ./shadow.nix
+
+      ../../modules/gnome
+      ../../modules/shadow
+      ../../modules/tlp
+      ../../modules/yubikey
       ./nftables.nix
-      ./tlp.nix
-      ./yubikey.nix
+
+      # https://github.com/NixOS/nixos-hardware
+      #
+      "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
+      "${inputs.nixos-hardware}/common/pc/laptop/ssd"
+      "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
 
       # Import secrets
       "${inputs.secrets}/wireless.nix"
