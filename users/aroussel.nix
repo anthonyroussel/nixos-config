@@ -8,7 +8,7 @@
         group = "aroussel";
         description = "Anthony Roussel";
         # Enable ‘sudo’ for the user.
-        extraGroups = [ "wheel" "docker" ];
+        extraGroups = [ "wheel" "docker" "networkmanager" ];
         # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
         passwordFile = "${inputs.secrets}/files/etc/shadow.d/aroussel";
         # Path to encrypted luks device that contains the user's home directory.
