@@ -31,27 +31,28 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1638097282,
+        "narHash": "sha256-EXCzj9b8X/lqDPJapxZThIOKL5ASbpsJZ+8L1LnY1ig=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "78cb77b29d37a9663e05b61abb4fa09465da4b70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "secrets": "secrets",
-        "shadow": "shadow"
-      }
-    },
-    "secrets": {
-      "locked": {
-        "lastModified": 1649939873,
-        "narHash": "sha256-46M2VE1LQZNeiGsdW2Fy72X+33QdghaXgeKEL2yKYfQ=",
-        "ref": "master",
-        "rev": "b0665b93d18c5f46c2c45f55ba4f66dd9191095d",
-        "revCount": 5,
-        "type": "git",
-        "url": "file:///persist/secrets/.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///persist/secrets/.git"
+        "shadow": "shadow",
+        "sops-nix": "sops-nix"
       }
     },
     "shadow": {
@@ -68,6 +69,24 @@
         "owner": "anthonyroussel",
         "ref": "v1.0.6",
         "repo": "shadow-nix",
+        "type": "github"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1649756291,
+        "narHash": "sha256-KTll8bCINAzIUGaaMrbn9wb5nfhkXRLgmFrWGR/Dku0=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "c2614c4fe61943b3d280ac1892fcebe6e8eaf8c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
         "type": "github"
       }
     }

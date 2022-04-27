@@ -8,8 +8,8 @@
     nixos-hardware = {
       url = "github:anthonyroussel/nixos-hardware/fix-xps_9560-primus_deprecations";
     };
-    secrets = {
-      url = "git+file:///persist/secrets/.git";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
     };
     shadow = {
       url = "github:anthonyroussel/shadow-nix/v1.0.6";
@@ -17,10 +17,13 @@
     };
   };
 
-  outputs = { nixpkgs, nixos-hardware, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
-      modules = [ ./machines/xps/configuration.nix ];
+      modules = [
+        ./machines/xps/configuration.nix
+        sops-nix.nixosModules.sops
+      ];
       specialArgs = { inherit inputs system; };
     };
 

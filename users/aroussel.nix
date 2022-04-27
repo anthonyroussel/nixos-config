@@ -1,5 +1,9 @@
-{ inputs, ... }:
+{ inputs, config, sops, ... }:
 {
+  sops.secrets."passwords/aroussel" = {
+    neededForUsers = true;
+  };
+
   users = {
     users = {
       aroussel = {
@@ -10,7 +14,7 @@
         # Enable ‘sudo’ for the user.
         extraGroups = [ "wheel" "docker" "networkmanager" ];
         # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
-        passwordFile = "${inputs.secrets}/files/etc/shadow.d/aroussel";
+        passwordFile = config.sops.secrets."passwords/aroussel".path;
         # Path to encrypted luks device that contains the user's home directory.
         cryptHomeLuks = "/dev/pool/home-aroussel";
       };

@@ -13,11 +13,13 @@
       ../../users/root.nix
       ../../users/aroussel.nix
 
+      ../../modules/sops
       ../../modules/gnome
       ../../modules/shadow
       ../../modules/sound
       ../../modules/tlp
       ../../modules/yubikey
+      ../../modules/wireless
       ./nftables.nix
 
       # https://github.com/NixOS/nixos-hardware
@@ -25,9 +27,6 @@
       "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
       "${inputs.nixos-hardware}/common/pc/laptop/ssd"
       "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
-
-      # Import secrets
-      "${inputs.secrets}/wireless.nix"
     ];
 
   # Enable experimental support for Nix flakes
@@ -152,6 +151,7 @@
     tree
     nload # Show the network usage
     zbar # Barcode reader
+    sops # Secret manager for Ops
   ];
 
   # Allow installation of unfree packages
