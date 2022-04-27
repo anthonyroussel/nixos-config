@@ -10,6 +10,9 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ../../users/root.nix
+      ../../users/aroussel.nix
+
       ../../modules/gnome
       ../../modules/shadow
       ../../modules/tlp
@@ -75,31 +78,6 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
-    users = {
-      root = {
-        # Lock password of the root account.
-        hashedPassword = "!";
-      };
-      aroussel = {
-        uid = 1000;
-        isNormalUser = true;
-        group = "aroussel";
-        description = "Anthony Roussel";
-        # Enable ‘sudo’ for the user.
-        extraGroups = [ "wheel" "docker" ];
-        # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
-        passwordFile = "${inputs.secrets}/files/etc/shadow.d/aroussel";
-        # Path to encrypted luks device that contains the user's home directory.
-        cryptHomeLuks = "/dev/pool/home-aroussel";
-      };
-    };
-    groups = {
-      aroussel = {
-        gid = 1000;
-        name = "aroussel";
-        members = [ "aroussel" ];
-      };
-    };
     # Change default system shell to `zsh`
     defaultUserShell = pkgs.zsh;
   };
