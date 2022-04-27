@@ -36,6 +36,11 @@
         device = "nodev";
         useOSProber = true;
         efiSupport = true;
+        extraEntries = ''
+          menuentry "System setup" {
+            fwsetup
+          }
+        '';
       };
     };
     kernelPackages = pkgs.linuxPackages_5_17;
