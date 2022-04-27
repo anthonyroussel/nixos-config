@@ -15,6 +15,7 @@
 
       ../../modules/gnome
       ../../modules/shadow
+      ../../modules/sound
       ../../modules/tlp
       ../../modules/yubikey
       ./nftables.nix
