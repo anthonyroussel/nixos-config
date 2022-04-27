@@ -139,8 +139,9 @@
     python3Packages.pip
     pipenv
 
-    # Audio
+    # Audio / video
     vorbis-tools # OGG codec
+    vlc
 
     # Network tools
     dig # DNS lookup utility
