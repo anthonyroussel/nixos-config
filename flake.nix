@@ -29,7 +29,7 @@
 
         # System-custom configuration file
         #
-        ./configuration.nix
+        ./machines/xps/configuration.nix
       ];
       specialArgs = { inherit inputs system; };
     };
