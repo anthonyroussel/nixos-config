@@ -1,9 +1,15 @@
 ![nixos-config](https://socialify.git.ci/anthonyroussel/nixos-config/image?description=1&font=KoHo&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Dark)
 
-# Deploy
+# Deploy NixOS configuration locally
 
-```
+```bash
 sudo nixos-rebuild --flake ".#xps" switch
+```
+
+# Build the DigitalOcean droplet image
+
+```bash
+nix build .#digitalocean
 ```
 
 # Current Hosts

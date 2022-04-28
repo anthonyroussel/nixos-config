@@ -3,7 +3,7 @@ name: Update Flake inputs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */12 * * *'
 
 jobs:
   update-nixpkgs:
@@ -22,7 +22,7 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Update Flake inputs
-        run: nix flake lock --update-input nixpkgs --update-input nixos-hardware
+        run: nix flake update
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
