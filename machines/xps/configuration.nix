@@ -31,7 +31,8 @@
 
   # Enable experimental support for Nix flakes
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nix_2_7;
+    allowedUsers = [ "aroussel" ];
     extraOptions = "experimental-features = nix-command flakes";
   };
 
