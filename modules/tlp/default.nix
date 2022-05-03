@@ -22,6 +22,7 @@
       DEVICES_TO_DISABLE_ON_LAN_CONNECT = "wifi wwan";
       DEVICES_TO_DISABLE_ON_WIFI_CONNECT = "wwan";
       DEVICES_TO_DISABLE_ON_WWAN_CONNECT = "wifi";
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth";
 
       # Radio devices to enable on disconnect.
       DEVICES_TO_ENABLE_ON_LAN_DISCONNECT = "wifi wwan";
