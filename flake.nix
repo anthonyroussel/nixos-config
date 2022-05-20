@@ -6,7 +6,7 @@
       url = "nixpkgs/nixos-21.11";
     };
     nixos-hardware = {
-      url = "github:anthonyroussel/nixos-hardware/fix-xps_9560-primus_deprecations";
+      url = "github:nixos/nixos-hardware";
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     shadow = {
-      url = "github:anthonyroussel/shadow-nix/v1.0.6";
+      url = "github:anthonyroussel/shadow-nix/v1.1.0";
       flake = false;
     };
   };
