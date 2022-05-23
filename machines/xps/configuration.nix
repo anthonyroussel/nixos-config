@@ -21,6 +21,7 @@
       ../../modules/yubikey
       ../../modules/wireless
       ./nftables.nix
+      ./unstable.nix
 
       # https://github.com/NixOS/nixos-hardware
       #
@@ -109,9 +110,6 @@
     corefonts
     dejavu_fonts
 
-    # Password management
-    gopass
-    gopass-jsonapi
     # Audio / video
     vorbis-tools # OGG codec
     vlc
@@ -134,18 +132,8 @@
     # Developer tools
     vscodium
     jq
-    google-cloud-sdk
     tmux
     nixpkgs-fmt
-
-    # Node.js
-    nodejs-17_x
-    nodePackages.yarn
-
-    # Python
-    python3
-    python3Packages.pip
-    pipenv
 
     # Various tools
     zbar # Barcode reader

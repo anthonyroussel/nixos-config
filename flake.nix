@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "nixpkgs/nixos-21.11";
     };
+    nixpkgs-unstable = {
+      url = "nixpkgs/nixos-unstable";
+    };
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
     };
