@@ -98,7 +98,6 @@
     git
     htop
     bash-completion
-    gnupg
 
     # Browser
     chromium
@@ -113,6 +112,24 @@
     # Password management
     gopass
     gopass-jsonapi
+    # Audio / video
+    vorbis-tools # OGG codec
+    vlc
+
+    # Imaging
+    gimp
+    imagemagick
+
+    # Network tools
+    dig # DNS lookup utility
+    mtr # My Traceroute
+    nload # Show the network usage
+
+    # Office
+    libreoffice
+
+    # Java
+    adoptopenjdk-bin
 
     # Developer tools
     vscodium
@@ -130,18 +147,20 @@
     python3Packages.pip
     pipenv
 
-    # Audio / video
-    vorbis-tools # OGG codec
-    vlc
+    # Various tools
+    zbar # Barcode reader
+    translate-shell # Google Translate
 
-    # Network tools
-    dig # DNS lookup utility
-    mtr # My Traceroute
+    # Crypt
+    tomb
+    gnupg
+    pinentry
+    pinentry-curses
+    cryptsetup
 
     # System tools
     ntfs3g # MS-NTFS driver
     efibootmgr # EFI boot manager
-    cryptsetup
     killall
     unzip
     file
@@ -150,8 +169,6 @@
     openssl
     borgbackup # Borg backup tool
     tree
-    nload # Show the network usage
-    zbar # Barcode reader
     sops # Secret manager for Ops
   ];
 
