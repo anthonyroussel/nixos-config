@@ -192,6 +192,11 @@
   # Enable Git LFS (Large File Storage).
   programs.git = {
     enable = true;
+    config = {
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
+    };
     lfs = {
       enable = true;
     };
