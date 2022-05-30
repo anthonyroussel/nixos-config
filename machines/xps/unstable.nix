@@ -28,8 +28,9 @@
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.python3Packages.pip
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.pipenv
 
-    # Terraform
+    # Infra as Code (IaC)
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.terraform
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.terraform-ls
+    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.pulumi-bin
   ];
 }
