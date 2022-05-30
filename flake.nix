@@ -20,7 +20,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     shadow = {
-      url = "github:anthonyroussel/shadow-nix/v1.1.0";
+      url = "github:anthonyroussel/shadow-nix";
       flake = false;
     };
   };
