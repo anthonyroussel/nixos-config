@@ -6,6 +6,7 @@
     #
     # Cloud tools
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.awscli2
+    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.awsebcli
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.google-cloud-sdk
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kubectl
 
