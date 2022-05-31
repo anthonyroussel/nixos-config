@@ -17,6 +17,7 @@
       ../../modules/gnome
       ../../modules/shadow
       ../../modules/sound
+      ../../modules/tpm
       ../../modules/tlp
       ../../modules/yubikey
       ../../modules/wireless
