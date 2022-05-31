@@ -15,7 +15,9 @@
 
   # Install Gnome Shell extensions
   environment.systemPackages = with pkgs; [
+    gnome.gnome-screenshot
     gnome.gnome-tweaks
+
     gnomeExtensions.applications-menu
     gnomeExtensions.disconnect-wifi
     gnomeExtensions.openweather
