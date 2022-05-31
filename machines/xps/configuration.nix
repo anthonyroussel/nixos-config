@@ -54,6 +54,7 @@
         '';
       };
     };
+    kernelPackages = pkgs.linuxPackages_5_18;
   };
 
   networking = {
