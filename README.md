@@ -14,9 +14,9 @@ nix build .#digitalocean
 
 # Current Hosts
 
-| Configuration                       | Type      | Location    | Description                  |
-| ----------------------------------- | --------- | ----------- | ---------------------------- |
-| [xps](./machines/xps)               | Desktop   | local       | Dell XPS 15 9560 laptop      |
+| Configuration         | Type    | Location | Description             |
+| --------------------- | ------- | -------- | ----------------------- |
+| [xps](./machines/xps) | Desktop | local    | Dell XPS 15 9560 laptop |
 
 # Sources
 
