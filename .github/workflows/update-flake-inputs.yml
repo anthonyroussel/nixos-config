@@ -27,8 +27,3 @@ jobs:
         with:
           pr-title: "Update flake.lock"
           pr-labels: dependencies
-
-      - uses: peter-evans/enable-pull-request-automerge@v2
-        with:
-          pull-request-number: ${{ steps.update_flakes.outputs.pull-request-number }}
-          merge-method: rebase
