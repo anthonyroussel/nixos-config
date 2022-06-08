@@ -21,14 +21,9 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
 
-      - name: Update Flake inputs
-        run: nix flake update
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@v9
+        id: update_flakes
         with:
-          author: "dependabot[bot] <dependabot[bot]@users.noreply.github.com>"
-          commit-message: "Update flake.lock"
-          title: "Update flake.lock"
-          labels: dependencies
-          reviewers: anthonyroussel
+          pr-title: "Update flake.lock"
+          pr-labels: dependencies
