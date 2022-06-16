@@ -159,6 +159,7 @@
     borgbackup # Borg backup tool
     tree
     sops # Secret manager for Ops
+    bintools-unwrapped # strings
   ];
 
   # Allow installation of unfree packages
