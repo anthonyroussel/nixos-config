@@ -125,6 +125,7 @@
 
     # Office
     libreoffice
+    calibre
 
     # Java
     adoptopenjdk-bin
