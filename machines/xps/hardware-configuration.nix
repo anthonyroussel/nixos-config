@@ -18,6 +18,13 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/3d5dd0f4-a64e-410f-af77-38aad4e7eba3";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=nix" "noatime" ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1F6C-9445";
       fsType = "vfat";
