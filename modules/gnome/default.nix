@@ -22,14 +22,18 @@
         [org.gnome.desktop.sound]
         event-sounds=false
       '';
+
+      extraGSettingsOverridePackages = [
+        pkgs.gsettings-desktop-schemas # for org.gnome.desktop
+      ];
     };
 
     # Configure keymap in X11
     layout = "fr";
-  };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
+    # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true;
+  };
 
   # Install Gnome Shell extensions
   environment.systemPackages = with pkgs; [
