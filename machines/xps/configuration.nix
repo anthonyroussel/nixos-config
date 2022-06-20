@@ -23,6 +23,7 @@
       ../../modules/wireless
       ./nftables.nix
       ./unstable.nix
+      ./systemd-network.nix
 
       # https://github.com/NixOS/nixos-hardware
       #
