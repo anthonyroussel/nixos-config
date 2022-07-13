@@ -23,14 +23,25 @@
       url = "github:anthonyroussel/shadow-nix";
       flake = false;
     };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         ./machines/xps/configuration.nix
         sops-nix.nixosModules.sops
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.aroussel = import ./home/aroussel.nix;
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
       ];
       specialArgs = { inherit inputs system; };
     };
