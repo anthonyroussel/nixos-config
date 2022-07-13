@@ -22,7 +22,6 @@
       ../../modules/yubikey
       ../../modules/wireless
       ./nftables.nix
-      ./unstable.nix
       ./systemd-network.nix
 
       # https://github.com/NixOS/nixos-hardware
@@ -101,45 +100,14 @@
     htop
     bash-completion
 
-    # Browser
-    chromium
-
-    # Messaging
-    discord
-
     # Fonts
     corefonts
     dejavu_fonts
-
-    # Audio / video
-    vorbis-tools # OGG codec
-    vlc
-
-    # Imaging
-    gimp
-    imagemagick
 
     # Network tools
     dig # DNS lookup utility
     mtr # My Traceroute
     nload # Show the network usage
-
-    # Office
-    libreoffice
-    calibre
-
-    # Java
-    adoptopenjdk-bin
-
-    # Developer tools
-    vscodium
-    jq
-    tmux
-    nixpkgs-fmt
-
-    # Various tools
-    zbar # Barcode reader
-    translate-shell # Google Translate
 
     # Crypt
     tomb
@@ -157,7 +125,6 @@
     pciutils # lspci
     usbutils # lsusb
     openssl
-    borgbackup # Borg backup tool
     tree
     sops # Secret manager for Ops
     bintools-unwrapped # strings
