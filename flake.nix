@@ -27,6 +27,14 @@
       url = "github:nix-community/home-manager?ref=release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-review = {
+      url = "github:Mic92/nixpkgs-review";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-review-checks = {
+      url = "github:SuperSandro2000/nixpkgs-review-checks";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, ... }@inputs: rec {

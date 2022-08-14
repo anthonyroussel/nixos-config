@@ -71,11 +71,9 @@
     #   withServer = true;
     # })
 
-    # Infra as Code (IaC)
-
-    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.terraform
-    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.terraform-ls
-    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.pulumi-bin
+    inputs.nixpkgs-review.defaultPackage.x86_64-linux
+    inputs.nixpkgs-review-checks.defaultPackage.x86_64-linux
+    inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.cached-nix-shell
   ];
 
   # This value determines the Home Manager release that your
