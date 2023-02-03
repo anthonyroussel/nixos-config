@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "nixpkgs/nixos-22.05";
+      url = "nixpkgs/nixos-22.11";
     };
     nixpkgs-unstable = {
       url = "nixpkgs/nixos-unstable";
@@ -24,7 +24,7 @@
       flake = false;
     };
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-22.05";
+      url = "github:nix-community/home-manager?ref=release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-review = {
