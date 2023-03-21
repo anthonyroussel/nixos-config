@@ -33,7 +33,9 @@
 
   # Enable experimental support for Nix flakes
   nix = {
-    allowedUsers = [ "aroussel" ];
+    settings = {
+      allowed-users = [ "aroussel" ];
+    };
     extraOptions = "experimental-features = nix-command flakes";
   };
 
