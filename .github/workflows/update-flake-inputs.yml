@@ -20,7 +20,7 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@v16
+        uses: DeterminateSystems/update-flake-lock@v18
         id: update_flakes
         with:
           pr-title: "Update flake.lock"
