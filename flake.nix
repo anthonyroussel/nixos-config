@@ -35,9 +35,13 @@
       url = "github:SuperSandro2000/nixpkgs-review-checks";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    devenv = {
+      url = "github:cachix/devenv/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, devenv, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
