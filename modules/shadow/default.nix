@@ -1,17 +1,14 @@
 { config, pkgs, lib, inputs, ... }:
 {
-  imports = [
-    "${inputs.shadow}/import/system.nix"
-  ];
-
-  programs.shadow-client = {
-    # Enabled by default when using import
-    # enable = true;
-    channel = "prod";
-  };
+  # programs.shadow-client = {
+  # Enabled by default when using import
+  # enable = true;
+  #   channel = "prod";
+  # };
 
   # Provides the `vainfo` command
   environment.systemPackages = with pkgs; [
+    config.nur.repos.anthonyroussel.shadow-prod
     libva-utils
   ];
 

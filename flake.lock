@@ -383,6 +383,21 @@
         "type": "indirect"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1683903555,
+        "narHash": "sha256-O121Bt3PsV5pDWrQPfhGADH5NnjhLURIGJmsRn7O4J4=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "8fcb6b87cb31fd7383026832fdcacee2c6b637ea",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [

@@ -19,9 +19,8 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    shadow = {
-      url = "github:anthonyroussel/shadow-nix";
-      flake = false;
+    nur = {
+      url = "github:nix-community/NUR";
     };
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-22.11";
@@ -41,12 +40,12 @@
     };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, devenv, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, devenv, nur, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
-        ./machines/xps/configuration.nix
         sops-nix.nixosModules.sops
+        nur.nixosModules.nur
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -54,6 +53,7 @@
           home-manager.users.aroussel = import ./home/aroussel.nix;
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
+        ./machines/xps/configuration.nix
       ];
       specialArgs = { inherit inputs system; };
     };
