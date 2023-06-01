@@ -30,9 +30,6 @@
 
     # Configure keymap in X11
     layout = "fr";
-
-    # Enable touchpad support (enabled default in most desktopManager).
-    libinput.enable = true;
   };
 
   # Install Gnome Shell extensions
