@@ -98,7 +98,6 @@
     vim
     wget
     curl
-    git
     htop
     bash-completion
 
@@ -152,8 +151,9 @@
   # Enable Git LFS (Large File Storage).
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     config = {
-      credential.helper = "${ pkgs.git.override { withLibsecret = true; } }/bin/git-credential-libsecret";
+      credential.helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
     };
     lfs = {
       enable = true;
