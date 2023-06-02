@@ -178,6 +178,10 @@
     enable = true;
   };
 
+  services.earlyoom = {
+    enable = true;
+  };
+
   # Disable the Avahi mDNS daemon (useless).
   services.avahi = {
     enable = false;
