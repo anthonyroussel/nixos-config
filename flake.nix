@@ -5,9 +5,6 @@
     nixpkgs = {
       url = "nixpkgs/nixos-23.05";
     };
-    nixpkgs-unstable = {
-      url = "nixpkgs/nixos-unstable";
-    };
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
     };
@@ -26,21 +23,12 @@
       url = "github:nix-community/home-manager?ref=release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-review = {
-      url = "github:Mic92/nixpkgs-review";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-review-checks = {
-      url = "github:SuperSandro2000/nixpkgs-review-checks";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    devenv = {
-      url = "github:cachix/devenv/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
+    my-home-manager = {
+      url = "github:anthonyroussel/home-manager";
     };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, devenv, nur, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, my-home-manager, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
@@ -50,7 +38,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.aroussel = import ./home/aroussel.nix;
+          home-manager.users.aroussel = my-home-manager.homeManagerModules.aroussel;
           home-manager.extraSpecialArgs = { inherit inputs; };
         }
         ./machines/xps/configuration.nix
