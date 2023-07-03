@@ -2,6 +2,8 @@ name: Update Flake inputs
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
 
 jobs:
   update-nixpkgs:
@@ -23,5 +25,5 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@v19
         id: update_flakes
         with:
-          pr-title: "Update flake.lock"
+          pr-title: "chore(deps): update flake.lock"
           pr-labels: dependencies
