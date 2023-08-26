@@ -23,24 +23,14 @@
       url = "github:nix-community/home-manager?ref=release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    my-home-manager = {
-      url = "github:anthonyroussel/home-manager";
-    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, my-home-manager, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, ... }@inputs: rec {
     nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
         nur.nixosModules.nur
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.aroussel = my-home-manager.homeManagerModules.aroussel;
-          home-manager.extraSpecialArgs = { inherit inputs; };
-        }
         ./machines/xps/configuration.nix
       ];
       specialArgs = { inherit inputs system; };
