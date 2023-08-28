@@ -160,6 +160,12 @@
     "shadow-prod"
     "nvidia-x11"
     "nvidia-settings"
+    "vscode"
+    "vscode-extension-github-codespaces"
+    "vscode-extension-ms-vsliveshare-vsliveshare"
+    "slack"
+    "microsoft-edge-stable"
+    "google-chrome"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
