@@ -119,6 +119,10 @@
     htop
     bash-completion
 
+    # Nix
+    cachix
+    home-manager
+
     # Fonts
     corefonts
     dejavu_fonts
