@@ -16,7 +16,6 @@
       ../../modules/sops
       ../../modules/gnome
       ../../modules/greetd
-      ../../modules/shadow
       ../../modules/sound
       ../../modules/tpm
       ../../modules/tlp
@@ -158,7 +157,6 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "corefonts"
     "discord"
-    "shadow-prod"
     "nvidia-x11"
     "nvidia-settings"
     "vscode"
