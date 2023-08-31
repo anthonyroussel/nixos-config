@@ -14,9 +14,10 @@ nix build .#digitalocean
 
 # Current Hosts
 
-| Configuration                 | Type    | Location | Description             |
-| ----------------------------- | ------- | -------- | ----------------------- |
-| [rsl-xps](./machines/rsl-xps) | Desktop | local    | Dell XPS 15 9560 laptop |
+| Configuration                 | Type          | Location | Description             |
+| ----------------------------- | ------------- | -------- | ----------------------- |
+| [rsl-xps](./machines/rsl-xps) | Desktop       | local    | Dell XPS 15 9560 laptop |
+| [rsl-rpi](./machines/rsl-rpi) | Nano-computer | local    | Raspberry Pi 3B+        |
 
 # Sources
 
