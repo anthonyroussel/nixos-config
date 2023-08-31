@@ -13,12 +13,12 @@
       ../../users/root.nix
       ../../users/aroussel.nix
 
-      ../../modules/sops
-      ../../modules/gnome
+      ../../modules/desktop
       ../../modules/greetd
+      ../../modules/sops
       ../../modules/sound
-      ../../modules/tpm
       ../../modules/tlp
+      ../../modules/tpm
       ../../modules/yubikey
       ../../modules/wireless
       ./nftables.nix
