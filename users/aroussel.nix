@@ -15,8 +15,9 @@
         # Enable ‘sudo’ for the user.
         extraGroups = [ "wheel" ]
           ++ lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]
+          ++ lib.optionals config.security.tpm2.enable [ "tss" ]
           ++ lib.optionals config.virtualisation.docker.enable [ "docker" ]
-          ++ lib.optionals config.security.tpm2.enable [ "tss" ];
+          ++ lib.optionals config.virtualisation.virtualbox.host.enable [ "vboxusers "];
 
         # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
         passwordFile = config.sops.secrets."passwords/aroussel".path;
