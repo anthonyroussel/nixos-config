@@ -15,6 +15,7 @@
 
       ../../modules/sops
       ../../modules/gnome
+      ../../modules/greetd
       ../../modules/shadow
       ../../modules/sound
       ../../modules/tpm
