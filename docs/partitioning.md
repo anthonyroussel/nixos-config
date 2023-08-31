@@ -36,10 +36,18 @@
 ## Create the NixOS Logical Volume
 
 ```bash
-# lvcreate -L 50G -n nixos-21_11 pool
-# mkfs.btrfs /dev/pool/nixos-21_11
+# lvcreate -L 50G -n nixos-23_05 pool
+# mkfs.btrfs /dev/pool/nixos-23_05
 # btrfs subvolume create /home
 # btrfs subvolume create /nix
+```
+
+## Installing
+
+```bash
+mkdir -p /mnt/nixos-23_05
+mount /dev/pool/nixos-23_05 /mnt/nixos-23_05
+nixos-generate-config --root /mnt/nixos-23_05
 ```
 
 ## Create the LUKS encrypted home-partition
