@@ -171,11 +171,6 @@
 
   programs.zsh = {
     enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "man" ];
-      theme = "agnoster";
-    };
   };
 
   # Enable the Firmware update manager service.
