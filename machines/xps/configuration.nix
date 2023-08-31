@@ -27,7 +27,7 @@
 
       # https://github.com/NixOS/nixos-hardware
       #
-      "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
+      "${inputs.nixos-hardware}/dell/xps/15-9560/intel"
       "${inputs.nixos-hardware}/common/pc/laptop/ssd"
       "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
     ];
