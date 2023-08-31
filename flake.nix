@@ -46,6 +46,19 @@
       specialArgs = { inherit inputs system nix-secrets; };
     };
 
+    # rsl-rpi
+    nixosConfigurations.rsl-rpi = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        sops-nix.nixosModules.sops
+        nur.nixosModules.gns3-server
+        ./machines/rsl-rpi/configuration.nix
+      ];
+      specialArgs = { inherit nix-secrets; };
+    };
+
+    images.rsl-rpi = nixosConfigurations.rsl-rpi.config.system.build.sdImage;
+
     # DigitalOcean NixOS image generator
     packages.x86_64-linux = {
       digitalocean = nixos-generators.nixosGenerate {
