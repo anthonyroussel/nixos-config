@@ -17,7 +17,7 @@
       ../../modules/greetd
       ../../modules/sops
       ../../modules/sound
-      ../../modules/tlp
+      # ../../modules/tlp
       ../../modules/tpm
       ../../modules/yubikey
       ../../modules/wireless
