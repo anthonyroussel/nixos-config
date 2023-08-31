@@ -3,7 +3,7 @@
 # Deploy NixOS configuration locally
 
 ```bash
-sudo nixos-rebuild --flake ".#xps" switch
+sudo nixos-rebuild --flake ".#rsl-xps" switch
 ```
 
 # Build the DigitalOcean droplet image
@@ -14,9 +14,9 @@ nix build .#digitalocean
 
 # Current Hosts
 
-| Configuration         | Type    | Location | Description             |
-| --------------------- | ------- | -------- | ----------------------- |
-| [xps](./machines/xps) | Desktop | local    | Dell XPS 15 9560 laptop |
+| Configuration                 | Type    | Location | Description             |
+| ----------------------------- | ------- | -------- | ----------------------- |
+| [rsl-xps](./machines/rsl-xps) | Desktop | local    | Dell XPS 15 9560 laptop |
 
 # Sources
 

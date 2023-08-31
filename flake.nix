@@ -25,17 +25,19 @@
     };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, ... }@inputs: rec {
-    nixosConfigurations.xps = nixpkgs.lib.nixosSystem rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, self, ... }@inputs: rec {
+    # rsl-xps
+    nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
         nur.nixosModules.nur
-        ./machines/xps/configuration.nix
+        ./machines/rsl-xps/configuration.nix
       ];
       specialArgs = { inherit inputs system; };
     };
 
+    # DigitalOcean NixOS image generator
     packages.x86_64-linux = {
       digitalocean = nixos-generators.nixosGenerate {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -43,7 +45,7 @@
       };
     };
 
-    defaultPackage.x86_64-linux = nixosConfigurations.xps.config.system.build.toplevel;
-    legacyPackages.x86_64-linux = nixosConfigurations.xps.pkgs;
+    defaultPackage.x86_64-linux = nixosConfigurations.rsl-xps.config.system.build.toplevel;
+    legacyPackages.x86_64-linux = nixosConfigurations.rsl-xps.pkgs;
   };
 }
