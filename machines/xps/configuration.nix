@@ -116,58 +116,32 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    wget
-    curl
-    htop
     bash-completion
-
-    # Nix
     cachix
-    home-manager
-
-    # Fonts
     corefonts
+    cryptsetup
+    curl
     dejavu_fonts
-
-    # Network tools
-    dig # DNS lookup utility
-    mtr # My Traceroute
-    nload # Show the network usage
-
-    # Crypt
-    tomb
+    dig
+    efibootmgr
     gnupg
+    home-manager
+    htop
+    ntfs3g
+    openssl
+    pciutils
     pinentry
     pinentry-curses
-    cryptsetup
-
-    # System tools
-    ntfs3g # MS-NTFS driver
-    efibootmgr # EFI boot manager
-    killall
-    unzip
-    file
-    pciutils # lspci
-    usbutils # lsusb
-    openssl
-    tree
-    sops # Secret manager for Ops
-    bintools-unwrapped # strings
+    sops
+    usbutils
+    vim
+    wget
   ];
 
   # Allow installation of unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "corefonts"
-    "discord"
-    "nvidia-x11"
-    "nvidia-settings"
-    "vscode"
-    "vscode-extension-github-codespaces"
-    "vscode-extension-ms-vsliveshare-vsliveshare"
-    "slack"
-    "microsoft-edge-stable"
-    "google-chrome"
+    "Oracle_VM_VirtualBox_Extension_Pack"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
