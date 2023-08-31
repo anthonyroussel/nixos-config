@@ -2,12 +2,13 @@
   # Enable sound.
   sound.enable = true;
 
-  # Use pulseaudio.
-  hardware.pulseaudio = {
+  # Disable pulseaudio
+  hardware.pulseaudio.enable = false;
+
+  # And use pipewire instead for Wayland
+  services.pipewire = {
     enable = true;
-    extraConfig = ''
-      set-sink-mute 0 yes
-      set-source-mute 1 yes
-    '';
+    alsa.enable = true;
+    pulse.enable = true;
   };
 }
