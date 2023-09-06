@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693996758,
+        "narHash": "sha256-GPPpBgJF10yPTHy6cHEcvQYYZJg7jrvBIQPdDvM6Hvk=",
+        "ref": "refs/heads/master",
+        "rev": "4a64e504cce09e73b49011e451328f7e4bb79a7c",
+        "revCount": 2,
+        "type": "git",
+        "url": "file:./secrets"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:./secrets"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1693701915,
@@ -121,6 +137,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-secrets": "nix-secrets",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

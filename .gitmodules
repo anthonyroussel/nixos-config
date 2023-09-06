@@ -1,0 +1,3 @@
+[submodule "secrets"]
+  path = secrets
+  url = ssh://github.com/anthonyroussel/nix-secrets

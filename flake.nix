@@ -23,9 +23,13 @@
       url = "github:nix-community/home-manager?ref=release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-secrets = {
+      url = "git+file:./secrets";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, self, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, self, ... }@inputs: rec {
     # rsl-xps
     nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
@@ -34,7 +38,7 @@
         nur.nixosModules.nur
         ./machines/rsl-xps/configuration.nix
       ];
-      specialArgs = { inherit inputs system; };
+      specialArgs = { inherit inputs system nix-secrets; };
     };
 
     # DigitalOcean NixOS image generator
