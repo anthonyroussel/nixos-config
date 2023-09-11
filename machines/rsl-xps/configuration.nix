@@ -89,6 +89,32 @@
     useDHCP = false;
   };
 
+  programs.gns3-gui.enable = true;
+
+  sops.secrets."gns3/password" = {
+    owner = "gns3";
+  };
+
+  services.gns3-server = {
+    enable = true;
+    package = pkgs.gns3-server.overrideAttrs(o: {
+      prePatch = ''
+        find gns3server/compute/docker/resources -type f -exec chmod +x {} \;
+      '';
+    });
+    dynamips.enable = true;
+    ubridge.enable = true;
+    vpcs.enable = true;
+    auth = {
+      enable = true;
+      user = "gns3";
+      passwordFile = config.sops.secrets."gns3/password".path;
+    };
+    log = {
+      debug = true;
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
