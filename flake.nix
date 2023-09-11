@@ -27,15 +27,19 @@
       url = "git+file:./secrets";
       flake = false;
     };
+    stylix = {
+      url = "github:danth/stylix?ref=release-23.05";
+    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, self, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, stylix, self, ... }@inputs: rec {
     # rsl-xps
     nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
         nur.nixosModules.nur
+        stylix.nixosModules.stylix
         ./machines/rsl-xps/configuration.nix
       ];
       specialArgs = { inherit inputs system nix-secrets; };

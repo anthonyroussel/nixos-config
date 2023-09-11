@@ -18,6 +18,7 @@
       ../../modules/sops
       ../../modules/sound
       # ../../modules/tlp
+      ../../modules/stylix
       ../../modules/tpm
       ../../modules/yubikey
       ../../modules/wireless
