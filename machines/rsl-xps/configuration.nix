@@ -197,6 +197,11 @@
     enableExtensionPack = true;
   };
 
+  # Clean logs older than 15d
+  services.cron.systemCronJobs = [
+    "0 20 * * * root ${pkgs.systemd}/bin/journalctl --vacuum-time=15d"
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
