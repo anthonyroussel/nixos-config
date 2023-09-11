@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
-      url = "github:nix-community/NUR";
+      url = "github:anthonyroussel/nur-packages";
     };
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-23.05";
@@ -38,8 +38,9 @@
       system = "x86_64-linux";
       modules = [
         sops-nix.nixosModules.sops
-        nur.nixosModules.nur
         stylix.nixosModules.stylix
+        nur.nixosModules.gns3-gui
+        nur.nixosModules.gns3-server
         ./machines/rsl-xps/configuration.nix
       ];
       specialArgs = { inherit inputs system nix-secrets; };
