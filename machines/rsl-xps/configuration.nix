@@ -66,6 +66,7 @@
     # Buffer I/O error on dev dm-0, logical block 16, async page read
     #
     # Last working nixpkgs commit is 4cdad15
+    # Looks like related to: https://bugzilla.kernel.org/show_bug.cgi?id=217802
     #
     kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_1.override {
       argsOverride = rec {
