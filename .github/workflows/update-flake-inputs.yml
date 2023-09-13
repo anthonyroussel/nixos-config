@@ -14,14 +14,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          submodules: true
 
       - name: Install Nix
         uses: cachix/install-nix-action@v23
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
           extra_nix_config: |
-            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            access-tokens = github.com=${{ secrets.ACCESS_TOKEN }}
             experimental-features = nix-command flakes
 
       - name: Update flake.lock
