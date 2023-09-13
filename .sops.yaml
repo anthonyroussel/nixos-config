@@ -1,7 +1,0 @@
-keys:
-  - &rsl-xps D5E05FDF90C4E87A544277787A84F9A135BFA103
-creation_rules:
-  - path_regex: secrets/rsl-xps\.yaml$
-    key_groups:
-      - pgp:
-          - *rsl-xps

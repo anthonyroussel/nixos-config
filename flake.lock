@@ -97,15 +97,15 @@
       "locked": {
         "lastModified": 1693996758,
         "narHash": "sha256-GPPpBgJF10yPTHy6cHEcvQYYZJg7jrvBIQPdDvM6Hvk=",
-        "ref": "refs/heads/master",
+        "owner": "anthonyroussel",
+        "repo": "nix-secrets",
         "rev": "4a64e504cce09e73b49011e451328f7e4bb79a7c",
-        "revCount": 2,
-        "type": "git",
-        "url": "file:./secrets"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:./secrets"
+        "owner": "anthonyroussel",
+        "repo": "nix-secrets",
+        "type": "github"
       }
     },
     "nixlib": {

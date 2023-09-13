@@ -24,7 +24,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-secrets = {
-      url = "git+file:./secrets";
+      url = "github:anthonyroussel/nix-secrets";
       flake = false;
     };
     stylix = {
