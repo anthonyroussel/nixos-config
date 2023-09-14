@@ -45,7 +45,6 @@
     allowedTCPPorts = [ 22 ];
   };
 
-
   networking = {
     # Define your hostname.
     hostName = "rsl-rpi";
