@@ -53,6 +53,7 @@
         sops-nix.nixosModules.sops
         ./machines/rsl-rpi/configuration.nix
       ];
+      specialArgs = { inherit nix-secrets; };
     };
 
     images.rsl-rpi = nixosConfigurations.rsl-rpi.config.system.build.sdImage;
