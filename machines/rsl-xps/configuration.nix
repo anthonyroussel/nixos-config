@@ -160,7 +160,6 @@
     pciutils
     pinentry
     pinentry-curses
-    sops
     usbutils
     vim
     wget
