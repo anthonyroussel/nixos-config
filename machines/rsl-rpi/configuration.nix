@@ -17,6 +17,15 @@
     };
   };
 
+  # Workaround: https://github.com/NixOS/nixpkgs/issues/154163
+  # modprobe: FATAL: Module sun4i-drm not found in directory
+  nixpkgs.overlays = [
+    (final: super: {
+      makeModulesClosure = x:
+        super.makeModulesClosure (x // {allowMissing = true;});
+    })
+  ];
+
   users.users.aroussel.openssh.authorizedKeys.keys = [
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCn9y09hn1G92Yxm7IPnTgcF2V1fKRdH0s2gKSbkY/XpM3aoMscQ3uvTNrdCxpLtGBkaEe67AKfIOdK+TKx1s/QnWELHlL4cgpP9UW7XR/w+XDJqKQZAv83HUIL6QEiLliS63UguHJOrjSK+hlhi/yhsh9lznRYett4nz7ZsrcqQUNwbei1CBfBb2ayS/B0QMzQgSD5uRXV1Sp5HpMZzEvKb0l16/jA+yTxoNIQP1AkjatSJ3CNetdJxOTMnFRp+mXwzS4fMWuiSOeeDXnByZC9VPbBbn8Id4PJhoB2E25oUl9Rb/z8KxKivUwLq/o+v9QXoAWiTBLBK547yrhQdINrsLjOEu31Ilv5oyv6HKq4kxuXMI9iG4oEDgVSnduOJ4M5gQ9VQ72c65yunRVVQT3SFv32B7+qILCvGbc5AmCAV8ST0l6no4HeasiTARFlEszBElcDu1pE0WXRot+pvPJ1dzHznaTt/IxaAv2thEbF5ZrXczkxAl9xZXfRjom9X4s= aroussel@rsl-rpi-3bp"
   ];

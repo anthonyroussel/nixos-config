@@ -51,6 +51,7 @@
       system = "aarch64-linux";
       modules = [
         sops-nix.nixosModules.sops
+        nur.nixosModules.gns3-server
         ./machines/rsl-rpi/configuration.nix
       ];
       specialArgs = { inherit nix-secrets; };
