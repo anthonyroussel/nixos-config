@@ -1,14 +1,13 @@
 { config, nix-secrets, pkgs, ... }:
 
 {
-  programs.gnupg.enable = true;
-
-  environment.systemPackages = [ pkgs.pinentry-curses ];
+  environment.systemPackages = [
+    pkgs.age
+  ];
 
   sops = {
-    gnupg = {
-      home = "/var/lib/sops";
-      sshKeyPaths = [];
+    age = {
+      keyFile = "/var/lib/sops-nix/key.txt";
     };
     defaultSopsFile = "${nix-secrets}/${config.networking.hostName}.yaml";
   };
