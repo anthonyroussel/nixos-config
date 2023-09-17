@@ -23,7 +23,7 @@
       ../../modules/yubikey
       ../../modules/wireless
       ./nftables.nix
-      ./systemd-network.nix
+      ./udev.nix
 
       # https://github.com/NixOS/nixos-hardware
       #
@@ -160,6 +160,7 @@
     pciutils
     pinentry
     pinentry-curses
+    udev
     usbutils
     vim
     wget
