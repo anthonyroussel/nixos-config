@@ -22,6 +22,7 @@
       ../../modules/tpm
       ../../modules/yubikey
       ../../modules/wireless
+      ./firejail.nix
       ./nftables.nix
       ./udev.nix
 
