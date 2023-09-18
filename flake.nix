@@ -30,12 +30,9 @@
     stylix = {
       url = "github:danth/stylix?ref=release-23.05";
     };
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
   };
 
-  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, stylix, impermanence, self, ... }@inputs: rec {
+  outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, stylix, self, ... }@inputs: rec {
     # rsl-xps
     nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
@@ -53,7 +50,6 @@
     nixosConfigurations.rsl-rpi = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        impermanence.nixosModules.impermanence
         sops-nix.nixosModules.sops
         nur.nixosModules.gns3-server
         ./machines/rsl-rpi/configuration.nix

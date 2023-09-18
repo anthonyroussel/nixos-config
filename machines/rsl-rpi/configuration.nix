@@ -4,7 +4,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./impermanence.nix
       ../../modules/sops
       ../../users/aroussel.nix
       ../../users/root.nix
