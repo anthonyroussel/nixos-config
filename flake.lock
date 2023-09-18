@@ -95,11 +95,11 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1694982844,
-        "narHash": "sha256-RMQUlloH4sstDCNvc9JL6Gpk5YSnfMveFXvSb3o5nSM=",
+        "lastModified": 1695026359,
+        "narHash": "sha256-B4bh7C7+cuHYiSjhZHtPwtMt0rF0RDflYMDaA1WwkS8=",
         "owner": "anthonyroussel",
         "repo": "nix-secrets",
-        "rev": "2296e17d5467429713aa5a0baaf6b586e6e59075",
+        "rev": "f32071df897cef3dbc444010b8500623e4fe4b91",
         "type": "github"
       },
       "original": {
