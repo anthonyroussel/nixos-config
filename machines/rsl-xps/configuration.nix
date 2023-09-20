@@ -69,16 +69,7 @@
     # Last working nixpkgs commit is 4cdad15
     # Looks like related to: https://bugzilla.kernel.org/show_bug.cgi?id=217802
     #
-    kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_1.override {
-      argsOverride = rec {
-        src = pkgs.fetchurl {
-          url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
-          sha256 = "14piy4cwv18a0yqp4gkrvr51z4zccyhab29n9ybxinkxdqwl68xx";
-        };
-        version = "6.1.45";
-        modDirVersion = "6.1.45";
-      };
-    });
+    kernelPackages = pkgs.linuxPackages_5_10;
   };
 
   networking = {
