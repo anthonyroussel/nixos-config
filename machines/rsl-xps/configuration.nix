@@ -24,6 +24,7 @@
       ../../modules/wireless
       ./firejail.nix
       ./nftables.nix
+      ./opengl.nix
       ./udev.nix
 
       # https://github.com/NixOS/nixos-hardware
