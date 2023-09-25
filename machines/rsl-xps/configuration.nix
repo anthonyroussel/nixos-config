@@ -10,9 +10,10 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../../users/root.nix
       ../../users/aroussel.nix
+      ./aroussel.nix
 
+      ../../users/root.nix
       ../../modules/desktop
       ../../modules/greetd
       ../../modules/sops

@@ -1,9 +1,6 @@
 { inputs, config, lib, sops, pkgs, ... }:
-{
-  sops.secrets."passwords/aroussel" = {
-    neededForUsers = true;
-  };
 
+{
   users = {
     users = {
       aroussel = {
@@ -19,12 +16,6 @@
           ++ lib.optionals config.services.gns3-server.enable [ "gns3" ]
           ++ lib.optionals config.virtualisation.docker.enable [ "docker" ]
           ++ lib.optionals config.virtualisation.virtualbox.host.enable [ "vboxusers" ];
-
-        # Generate the password with `mkpasswd -m sha-512 > passwords/aroussel`
-        passwordFile = config.sops.secrets."passwords/aroussel".path;
-
-        # Path to encrypted luks device that contains the user's home directory.
-        cryptHomeLuks = "/dev/pool/home-aroussel";
 
         # User authorized key for OpenSSH
         openssh.authorizedKeys.keys = [
