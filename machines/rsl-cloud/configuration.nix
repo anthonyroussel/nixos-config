@@ -8,6 +8,10 @@
       ../../users/root.nix
     ];
 
+  amazonImage = {
+    name = "rsl-cloud_amazon-image-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}";
+  };
+
   system.autoUpgrade = {
     enable = true;
     flake = "github:anthonyroussel/nixos-config#rsl-cloud";
