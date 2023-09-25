@@ -199,12 +199,6 @@
   # Install Podman
   virtualisation.podman.enable = true;
 
-  # Install Virtualbox
-  virtualisation.virtualbox.host = {
-    enable = true;
-    enableExtensionPack = true;
-  };
-
   # Clean logs older than 15d
   services.cron.systemCronJobs = [
     "0 20 * * * root ${pkgs.systemd}/bin/journalctl --vacuum-time=15d"
