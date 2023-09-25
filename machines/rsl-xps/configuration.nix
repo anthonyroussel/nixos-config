@@ -59,17 +59,6 @@
         '';
       };
     };
-
-    # 6.1.46 breaks system boot with:
-    #
-    # nvme 0000:04:00.00: Unable to change power state from D3cold to D0, device inaccessible
-    # I/O error, dev nvme0n1, sector 230688896 op 0x0:(READ) flags 0x0 phys_seg 1 prio class 2
-    # Buffer I/O error on dev dm-0, logical block 16, async page read
-    #
-    # Last working nixpkgs commit is 4cdad15
-    # Looks like related to: https://bugzilla.kernel.org/show_bug.cgi?id=217802
-    #
-    kernelPackages = pkgs.linuxPackages_5_10;
   };
 
   networking = {
