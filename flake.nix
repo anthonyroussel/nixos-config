@@ -65,6 +65,18 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         format = "do";
       };
+
+      # nix build .#rsl-cloud
+      rsl-cloud = nixos-generators.nixosGenerate {
+        system = "x86_64-linux";
+        modules = [
+          sops-nix.nixosModules.sops
+          nur.nixosModules.gns3-server
+          ./machines/rsl-cloud/configuration.nix
+        ];
+        format = "amazon";
+        specialArgs = { inherit nix-secrets; };
+      };
     };
 
     defaultPackage.x86_64-linux = nixosConfigurations.rsl-xps.config.system.build.toplevel;
