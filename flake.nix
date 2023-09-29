@@ -33,6 +33,8 @@
   };
 
   outputs = { nixpkgs, nixos-hardware, sops-nix, nixos-generators, home-manager, nur, nix-secrets, stylix, self, ... }@inputs: rec {
+    nixosModules = import ./modules;
+
     # rsl-xps
     nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
