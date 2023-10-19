@@ -16,6 +16,11 @@ jobs:
           fetch-depth: 0
 
       - uses: DeterminateSystems/nix-installer-action@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          extra-conf: |
+            access-tokens = github.com=${{ secrets.ACCESS_TOKEN }}
+
       - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Update flake.lock
