@@ -14,13 +14,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v23
-        with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          extra_nix_config: |
-            access-tokens = github.com=${{ secrets.ACCESS_TOKEN }}
-            experimental-features = nix-command flakes
+      - uses: DeterminateSystems/nix-installer-action@v6
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
 
       - name: Build
         run: nix build
