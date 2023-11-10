@@ -227,11 +227,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1699444992,
-        "narHash": "sha256-qaZWS1MMXKD/8dKKWh9IO2nt5X68rzCtH4fBcBXMXmA=",
+        "lastModified": 1699536267,
+        "narHash": "sha256-wkq4ndNoMN+L+mwLnz8uRoSR0fzsUeqqggC+qhfC9TE=",
         "owner": "anthonyroussel",
         "repo": "nur-packages",
-        "rev": "fa9175b9b0a324dbd183a8fd29705de77008dfff",
+        "rev": "53213fc8b0428e0009ddab0b0d0779ac9f08b8fc",
         "type": "github"
       },
       "original": {
