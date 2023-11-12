@@ -18,6 +18,7 @@
     };
     nur = {
       url = "github:anthonyroussel/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager?ref=release-23.05";
