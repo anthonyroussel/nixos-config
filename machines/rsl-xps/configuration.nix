@@ -15,6 +15,7 @@
 
       ../../users/root.nix
       ../../modules/desktop
+      ../../modules/gns3
       ../../modules/libvirt
       ../../modules/nix
       ../../modules/sops
@@ -64,25 +65,6 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
-  };
-
-  programs.gns3-gui.enable = true;
-
-  sops.secrets."gns3/password" = {
-    # owner = "gns3";
-  };
-
-  services.gns3-server = {
-    enable = true;
-    dynamips.enable = true;
-    ubridge.enable = true;
-    vpcs.enable = true;
-    auth = {
-      enable = true;
-      user = "gns3";
-      passwordFile = config.sops.secrets."gns3/password".path;
-    };
-    log.debug = true;
   };
 
   # Set your time zone.
