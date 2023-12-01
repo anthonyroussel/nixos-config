@@ -175,9 +175,7 @@
   virtualisation.podman.enable = true;
 
   # Clean logs older than 15d
-  services.cron.systemCronJobs = [
-    "0 20 * * * root ${pkgs.systemd}/bin/journalctl --vacuum-time=15d"
-  ];
+  rsl.vacuum-journalctl-cron.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -40,6 +40,7 @@
     nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
+        nixosModules.vacuum-journalctl-cron
         sops-nix.nixosModules.sops
         stylix.nixosModules.stylix
         nur.nixosModules.gns3-gui
@@ -53,6 +54,7 @@
     nixosConfigurations.rsl-rpi = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
+        nixosModules.vacuum-journalctl-cron
         sops-nix.nixosModules.sops
         nur.nixosModules.gns3-server
         ./machines/rsl-rpi/configuration.nix
@@ -73,6 +75,7 @@
       rsl-cloud = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         modules = [
+          nixosModules.vacuum-journalctl-cron
           sops-nix.nixosModules.sops
           nur.nixosModules.gns3-server
           ./machines/rsl-cloud/configuration.nix
