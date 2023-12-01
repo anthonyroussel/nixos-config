@@ -57,16 +57,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1700392168,
-        "narHash": "sha256-v5LprEFx3u4+1vmds9K0/i7sHjT0IYGs7u9v54iz/OA=",
+        "lastModified": 1700814205,
+        "narHash": "sha256-lWqDPKHRbQfi+zNIivf031BUeyciVOtwCwTjyrhDB5g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "28535c3a34d79071f2ccb68671971ce0c0984d7e",
+        "rev": "aeb2232d7a32530d3448318790534d196bf9427a",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-23.05",
+        "ref": "release-23.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -95,11 +95,11 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1695640700,
-        "narHash": "sha256-EW+3UiP2UvNC/mgavlT/cdmoPs42C/EcdcrsBk5hJEk=",
+        "lastModified": 1701388126,
+        "narHash": "sha256-Pfs/YQWhAH5znSAdFz2Zu6YeoikNlf44Ak+sdpqiKlY=",
         "owner": "anthonyroussel",
         "repo": "nix-secrets",
-        "rev": "61a589284ccc693b26477da4d9d10979603b8614",
+        "rev": "7758d2b1973f4ab81fcdd76f9a693f6233b8d43d",
         "type": "github"
       },
       "original": {
@@ -161,16 +161,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1701053011,
-        "narHash": "sha256-8QQ7rFbKFqgKgLoaXVJRh7Ik5LtI3pyBBCfOnNOGkF0=",
+        "lastModified": 1701263465,
+        "narHash": "sha256-lNXUIlkfyDyp9Ox21hr+wsEf/IBklLvb6bYcyeXbdRc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5b528f99f73c4fad127118a8c1126b5e003b01a9",
+        "rev": "50aa30a13c4ab5e7ba282da460a3e3d44e9d0eb3",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "ref": "nixos-23.05",
+        "ref": "nixos-23.11",
         "type": "indirect"
       }
     },
@@ -213,11 +213,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701263680,
-        "narHash": "sha256-uef34TvIg1wgt82u42zEIcWPo4KHRgYKr6OK+higKn0=",
+        "lastModified": 1701346689,
+        "narHash": "sha256-P1zjwitOSZRvUr/uypghBmgwbXI0KY1byJRHGi7J3G8=",
         "owner": "anthonyroussel",
         "repo": "nur-packages",
-        "rev": "19773685b398b33f135be779251ba835fcd69d57",
+        "rev": "c2ed648d9733ab96464cb454ce7bedf6fc78c48a",
         "type": "github"
       },
       "original": {
