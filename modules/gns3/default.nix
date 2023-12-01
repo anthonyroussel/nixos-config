@@ -1,6 +1,8 @@
 { config, ... }:
 
 {
+  sops.secrets."gns3/password" = {};
+
   programs.gns3-gui.enable = true;
 
   services.gns3-server = {
