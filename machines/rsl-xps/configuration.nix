@@ -14,6 +14,7 @@
       ./aroussel.nix
 
       ../../users/root.nix
+      ../../modules/containers/postgres
       ../../modules/desktop
       ../../modules/gns3
       ../../modules/libvirt
