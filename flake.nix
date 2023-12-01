@@ -44,10 +44,9 @@
         sops-nix.nixosModules.sops
         stylix.nixosModules.stylix
         nur.nixosModules.gns3-gui
-        nur.nixosModules.gns3-server
         ./machines/rsl-xps/configuration.nix
       ];
-      specialArgs = { inherit inputs system nix-secrets; };
+      specialArgs = { inherit inputs system nix-secrets nur; };
     };
 
     # rsl-rpi
@@ -56,7 +55,6 @@
       modules = [
         nixosModules.vacuum-journalctl-cron
         sops-nix.nixosModules.sops
-        nur.nixosModules.gns3-server
         ./machines/rsl-rpi/configuration.nix
       ];
       specialArgs = { inherit nix-secrets; };
