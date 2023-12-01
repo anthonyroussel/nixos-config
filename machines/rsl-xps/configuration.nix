@@ -141,9 +141,6 @@
     "corefonts"
     "nvidia-settings"
     "nvidia-x11"
-    "steam"
-    "steam-original"
-    "steam-run"
   ];
   nixpkgs.config.nvidia.acceptLicense = true;
 
