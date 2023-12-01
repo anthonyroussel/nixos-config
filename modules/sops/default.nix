@@ -15,6 +15,6 @@
       # This will automatically import SSH keys as age keys
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     };
-    defaultSopsFile = "${nix-secrets}/${config.networking.hostName}.yaml";
+    defaultSopsFile = "${nix-secrets}/nixos/${config.networking.hostName}.yaml";
   };
 }
