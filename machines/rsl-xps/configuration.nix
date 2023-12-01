@@ -15,7 +15,6 @@
 
       ../../users/root.nix
       ../../modules/desktop
-      ../../modules/greetd
       ../../modules/sops
       ../../modules/sound
       ../../modules/stylix

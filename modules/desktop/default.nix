@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  # Use SDDM and Xfce Plasma
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+
   # Enable dconf
   programs.dconf.enable = true;
 
