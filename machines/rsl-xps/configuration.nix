@@ -15,6 +15,7 @@
 
       ../../users/root.nix
       ../../modules/desktop
+      ../../modules/libvirt
       ../../modules/sops
       ../../modules/sound
       ../../modules/stylix
