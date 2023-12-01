@@ -16,6 +16,7 @@
       ../../users/root.nix
       ../../modules/desktop
       ../../modules/libvirt
+      ../../modules/nix
       ../../modules/sops
       ../../modules/sound
       ../../modules/stylix
@@ -34,14 +35,6 @@
       "${inputs.nixos-hardware}/common/pc/laptop/ssd"
       "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
     ];
-
-  # Enable experimental support for Nix flakes
-  nix = {
-    settings = {
-      allowed-users = [ "aroussel" ];
-    };
-    extraOptions = "experimental-features = nix-command flakes";
-  };
 
   # Use the Grub2 EFI boot loader.
   boot = {
