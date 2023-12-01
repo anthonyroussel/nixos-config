@@ -1,12 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Use SDDM and Xfce Plasma
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
   # Enable dconf
   programs.dconf.enable = true;
 
@@ -24,6 +18,11 @@
 
     # Configure keymap in X11
     layout = "fr";
+
+    # Use SDDM and Xfce Plasma
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+    desktopManager.xfce.enable = true;
   };
 
   # Required to run sway as desktop manager
