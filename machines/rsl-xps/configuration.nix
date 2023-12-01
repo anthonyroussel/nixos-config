@@ -144,9 +144,15 @@
 
   # Allow installation of unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "corefonts"
     "Oracle_VM_VirtualBox_Extension_Pack"
+    "corefonts"
+    "nvidia-settings"
+    "nvidia-x11"
+    "steam"
+    "steam-original"
+    "steam-run"
   ];
+  nixpkgs.config.nvidia.acceptLicense = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
