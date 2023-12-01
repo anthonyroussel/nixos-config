@@ -1,4 +1,8 @@
+{ config, pkgs, ... }:
+
 {
+  sops.secrets."nix/secret-key-file" = { };
+
   # Enable experimental support for Nix flakes
   nix = {
     # https://nixos.org/manual/nix/stable/release-notes/rl-2.18.html
@@ -6,7 +10,8 @@
     settings = {
       allowed-users = [ "aroussel" ];
       secret-key-files = [
-        "/etc/nix/nix-cache.roussel.dev.key"
+        # Secret key file for nix-cache.roussel.dev
+        config.sops.secrets."nix/secret-key-file".path
       ];
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
