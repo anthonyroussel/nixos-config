@@ -14,13 +14,13 @@
       ./aroussel.nix
 
       ../../users/root.nix
-      ../../modules/containers/postgres
       ../../modules/desktop
       ../../modules/firewall
       ../../modules/gns3
       ../../modules/libvirt
       ../../modules/nix
       ../../modules/nix-builders
+      ../../modules/postgres
       ../../modules/sops
       ../../modules/sound
       ../../modules/stylix
