@@ -18,6 +18,7 @@
       ../../modules/gns3
       ../../modules/libvirt
       ../../modules/nix
+      ../../modules/nix-builders
       ../../modules/sops
       ../../modules/sound
       ../../modules/stylix
