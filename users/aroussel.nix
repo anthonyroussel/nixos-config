@@ -13,7 +13,7 @@
         extraGroups = [ "wheel" ]
           ++ lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]
           ++ lib.optionals config.security.tpm2.enable [ "tss" ]
-          ++ lib.optionals config.services.gns3-server.enable [ "gns3" ]
+          ++ lib.optionals config.virtualisation.libvirtd.enable [ "libvirtd" ]
           ++ lib.optionals config.virtualisation.docker.enable [ "docker" ]
           ++ lib.optionals config.virtualisation.virtualbox.host.enable [ "vboxusers" ];
 
