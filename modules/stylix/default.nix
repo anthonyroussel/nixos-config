@@ -34,5 +34,7 @@
         terminal = 14;
       };
     };
+
+    targets.grub.enable = false;
   };
 }
