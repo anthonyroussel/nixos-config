@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../../modules/nix
       ../../modules/sops
       ../../users/aroussel.nix
       ../../users/root.nix
@@ -17,12 +18,6 @@
     flake = "github:anthonyroussel/nixos-config#rsl-cloud";
     allowReboot = true;
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
   };
 
   environment.systemPackages = [

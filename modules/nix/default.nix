@@ -28,6 +28,14 @@
         "https://nix-community.cachix.org"
       ];
     };
+
     extraOptions = "experimental-features = nix-command flakes";
+
+    # Automatically clear Nix store every 7 days
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 }

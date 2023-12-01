@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ../../modules/nix
       ../../modules/sops
       ../../users/aroussel.nix
       ../../users/root.nix
@@ -23,12 +24,6 @@
     flake = "github:anthonyroussel/nixos-config#rsl-rpi";
     allowReboot = true;
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
   };
 
   # Workaround: https://github.com/NixOS/nixpkgs/issues/154163
