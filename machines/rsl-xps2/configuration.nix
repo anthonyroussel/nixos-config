@@ -42,19 +42,19 @@
   boot = {
     loader = {
       efi = {
-        canTouchEfiVariables = false;
+        canTouchEfiVariables = true;
       };
       grub = {
         enable = false;
-        # device = "nodev";
-        # useOSProber = true;
-        # efiSupport = true;
-        # enableCryptodisk = true;
-        # extraEntries = ''
-        #   menuentry "System setup" {
-        #     fwsetup
-        #   }
-        # '';
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
+        enableCryptodisk = true;
+        extraEntries = ''
+          menuentry "System setup" {
+            fwsetup
+          }
+        '';
       };
     };
   };
