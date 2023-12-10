@@ -49,6 +49,19 @@
       specialArgs = { inherit inputs system nix-secrets nur; };
     };
 
+    # rsl-xps2
+    nixosConfigurations.rsl-xps2 = nixpkgs.lib.nixosSystem rec {
+      system = "x86_64-linux";
+      modules = [
+        nixosModules.vacuum-journalctl-cron
+        sops-nix.nixosModules.sops
+        stylix.nixosModules.stylix
+        nur.nixosModules.gns3-gui
+        ./machines/rsl-xps2/configuration.nix
+      ];
+      specialArgs = { inherit inputs system nix-secrets nur; };
+    };
+
     # rsl-rpi
     nixosConfigurations.rsl-rpi = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
