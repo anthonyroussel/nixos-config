@@ -26,6 +26,33 @@
 # mkfs.fat -F 32 -n boot /dev/nvme0n1p1
 ```
 
+## Crypt the LVM partition
+
+```console
+cryptsetup luksFormat /dev/nvme0n1p2
+```
+
+Then generate the recovery key for the LUKS partition (just in case of lost password):
+
+```console
+dd if=/dev/random of=luks-nvme0n1p2.key bs=4096 count=1
+cryptsetup luksAddKey /dev/nvme0n1p2 luks-nvme0n1p2.key
+```
+
+:warning: Store the LUKS recovery key in a safe location.
+
+Same for the LUKS header:
+
+```console
+cryptsetup luksHeaderBackup /dev/nvme0n1p2 --header-backup-file luks-header-nvme0n1p2.bin
+```
+
+Then open the LUKS-encrypted LVM partition with:
+
+```console
+cryptsetup open /dev/nvme0n1p2 pool
+```
+
 ## Create the LVM Physical Volume and Virtual Group
 
 ```bash
@@ -36,8 +63,8 @@
 ## Create the NixOS Logical Volume
 
 ```bash
-# lvcreate -L 50G -n nixos-23_05 pool
-# mkfs.btrfs /dev/pool/nixos-23_05
+# lvcreate -L 50G -n nixos pool
+# mkfs.btrfs /dev/pool/nixos
 # btrfs subvolume create /home
 # btrfs subvolume create /nix
 ```
@@ -45,9 +72,9 @@
 ## Installing
 
 ```bash
-mkdir -p /mnt/nixos-23_05
-mount /dev/pool/nixos-23_05 /mnt/nixos-23_05
-nixos-generate-config --root /mnt/nixos-23_05
+mkdir -p /mnt/nixos
+mount /dev/pool/nixos /mnt/nixos
+nixos-generate-config --root /mnt/nixos
 ```
 
 ## Create the LUKS encrypted home-partition
