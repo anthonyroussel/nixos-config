@@ -28,7 +28,6 @@
       ../../modules/tpm
       ../../modules/yubikey
       ../../modules/wireless
-      ./firejail.nix
       ./opengl.nix
       ./udev.nix
 
@@ -50,12 +49,22 @@
         device = "nodev";
         useOSProber = true;
         efiSupport = true;
+        enableCryptodisk = true;
         extraEntries = ''
           menuentry "System setup" {
             fwsetup
           }
         '';
       };
+    };
+  };
+
+  # LUKS-encrypted LVM partition
+  boot.initrd.luks.devices = {
+    pool2 = {
+      device = "/dev/disk/by-uuid/5d329e1e-39c2-46a8-88c0-01cf101ddc82";
+      preLVM = true;
+      fallbackToPassword = true;
     };
   };
 
@@ -183,6 +192,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
