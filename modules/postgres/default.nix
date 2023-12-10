@@ -16,6 +16,18 @@
       services.postgresql = {
         enable = true;
         package = pkgs.postgresql_16;
+        authentication = ''
+          host lafourmiliere lafourmiliere all trust
+        '';
+        ensureDatabases = [
+          "lafourmiliere"
+        ];
+        ensureUsers = [
+          {
+            name = "lafourmiliere";
+            ensureDBOwnership = true;
+          }
+        ];
       };
 
       system.stateVersion = "23.11";
