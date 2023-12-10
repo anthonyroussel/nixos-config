@@ -69,24 +69,31 @@ cryptsetup open /dev/nvme0n1p2 pool
 # btrfs subvolume create /nix
 ```
 
-## Installing
+## Mounting target filesystem
 
 ```bash
 mkdir -p /mnt/nixos
 mount /dev/pool/nixos /mnt/nixos
-nixos-generate-config --root /mnt/nixos
 ```
 
-## Create the LUKS encrypted home-partition
+## Mounting Nix secrets
+
+Refer to [my Nix secrets repository](https://github.com/anthonyroussel/nix-secrets)
+
+## Installing NixOS
+
+```console
+nixos-generate-config --root /mnt/nixos
+nixos-install --root /mnt/nixos --flake github:anthonyroussel/nixos-config#rsl-xps
+```
+
+## Create the home-partition
 
 ```bash
 # lvcreate -L 30G -n home-aroussel pool
-# crypsetup luksFormat /dev/pool/home-aroussel
-# crypsetup luksOpen /dev/pool/home-aroussel home-aroussel
 # mkfs.btrfs /dev/mapper/home-aroussel
 # mkdir -p /home/aroussel
 # mount /dev/mapper/home-aroussel /home/aroussel
 # btrfs subvolume create /home/aroussel
 # umount /home/aroussel
-# crypsetup luksClose home-aroussel
 ```
