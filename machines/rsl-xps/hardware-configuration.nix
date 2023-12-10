@@ -18,6 +18,17 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/4b74a56a-e067-4e3d-8b07-2b8985358a1a";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/home/aroussel" =
+    { device = "/dev/disk/by-uuid/4b74a56a-e067-4e3d-8b07-2b8985358a1a";
+      fsType = "btrfs";
+      options = [ "subvol=aroussel" ];
+    };
+
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/eea2fc6c-e0ea-4665-a03d-28e707ec7988";
       fsType = "btrfs";
