@@ -18,6 +18,18 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/eea2fc6c-e0ea-4665-a03d-28e707ec7988";
+      fsType = "btrfs";
+      neededForBoot = true;
+      options = [ "subvol=nix" "noatime" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/1F6C-9445";
+      fsType = "vfat";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
