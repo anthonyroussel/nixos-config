@@ -1,3 +1,5 @@
+{ config, lib, ... }:
+
 {
   containers.mailhog = {
     autoStart = true;
