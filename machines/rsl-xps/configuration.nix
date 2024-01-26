@@ -18,6 +18,7 @@
       ../../modules/firewall
       ../../modules/gns3
       ../../modules/libvirt
+      ../../modules/mailhog
       ../../modules/nix
       ../../modules/nix-builders
       ../../modules/postgres
