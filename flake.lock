@@ -241,11 +241,11 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1702239015,
-        "narHash": "sha256-9pfDwLIDgAFoqQU9srkDLALtdlekts7qNw8vgFCVlXc=",
+        "lastModified": 1707504167,
+        "narHash": "sha256-ksWWRASZ7Skq1jrXZfdWyBseec2fEJJzPVhrdj96a3k=",
         "owner": "anthonyroussel",
         "repo": "nix-secrets",
-        "rev": "95bf2bd63a3ba297c4ff5957c2d533408acb582f",
+        "rev": "c705a9629e0ee7e8ad07d831ebd090b52b98cd5a",
         "type": "github"
       },
       "original": {
@@ -359,11 +359,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707437308,
-        "narHash": "sha256-AFEMj2WiFn9fxeiQrmx3F1pAoiyoLi6obL2wJv321qo=",
+        "lastModified": 1707481240,
+        "narHash": "sha256-vxpLMIBudVftSq3zkOChHxHYdrKU2+Nyvw7KEqNyyAE=",
         "owner": "anthonyroussel",
         "repo": "nur-packages",
-        "rev": "cbd48f8e95fa78edc5a27f820d88f00c8e6d37ce",
+        "rev": "bc5cec71de53bdb982869e059c4350a7dab52469",
         "type": "github"
       },
       "original": {
@@ -422,11 +422,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1707414210,
-        "narHash": "sha256-MJ4deL9tTzowkGpW9Iq+k3cSKo2gnvyIkIuFctNz/dQ=",
+        "lastModified": 1707492526,
+        "narHash": "sha256-i87wM/l56Hrvmr5D41+S7lL0uWBDHQUJGp3dVzKNQXM=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "f3b302dd9bb66fcdd1ed3f185068a5f1000eb863",
+        "rev": "b17c41ca43866609579ea9c9ef96532d8854b85f",
         "type": "github"
       },
       "original": {
