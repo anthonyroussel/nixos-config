@@ -34,11 +34,13 @@ in {
   sops.secrets."networkmanager/Livebox-6296/psk" = { };
   sops.secrets."networkmanager/Livebox-D850/psk" = { };
   sops.secrets."networkmanager/Livebox-E3F0/psk" = { };
+  sops.secrets."networkmanager/Livebox-8C40/psk" = { };
 
   sops.templates."networkmanager".content = ''
     LIVEBOX_6296_PSK = "${config.sops.placeholder."networkmanager/Livebox-6296/psk"}"
     LIVEBOX_D850_PSK = "${config.sops.placeholder."networkmanager/Livebox-D850/psk"}"
     LIVEBOX_E3F0_PSK = "${config.sops.placeholder."networkmanager/Livebox-E3F0/psk"}"
+    LIVEBOX_8C40_PSK = "${config.sops.placeholder."networkmanager/Livebox-8C40/psk"}"
   '';
 
   networking.networkmanager.ensureProfiles = {
@@ -49,15 +51,20 @@ in {
         ssid = "Livebox-6296";
         psk = "$LIVEBOX_6296_PSK";
       };
-      "Livebox-D580" = mkWirelessProfile {
+      "Livebox-D850" = mkWirelessProfile {
         uuid = "b3039850-54f0-4859-ae26-728c4ee6f4c1";
-        ssid = "Livebox-D580";
-        psk = "$LIVEBOX_D580_PSK";
+        ssid = "Livebox-D850";
+        psk = "$LIVEBOX_D850_PSK";
       };
       "Livebox-E3F0" = mkWirelessProfile {
         uuid = "ade27a61-b441-49a2-bb43-5383a1c94a84";
         ssid = "Livebox-E3F0";
         psk = "$LIVEBOX_E3F0_PSK";
+      };
+      "Livebox-8C40" = mkWirelessProfile {
+        uuid = "d30d92c6-26c5-4ac2-9261-36d567e7aae";
+        ssid = "Livebox-8C40";
+        psk = "$LIVEBOX_8C40_PSK";
       };
     };
   };
