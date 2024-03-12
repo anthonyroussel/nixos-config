@@ -3,8 +3,11 @@
 {
   sops.secrets."nix-builders/darwin-build-box-ssh-key" = {};
 
+  programs.ssh.knownHosts."build-box.nix-community.org".publicKey =
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
+
   programs.ssh.knownHosts."darwin-build-box.nix-community.org".publicKey =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKX7W1ztzAtVXT+NBMITU+JLXcIE5HTEOd7Q3fQNu80S";
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDDnaVD9TZDJKSpiJQg0qYs0WUHFq3Ur5ijm/kHOY91N";
 
   nix = {
     distributedBuilds = true;
