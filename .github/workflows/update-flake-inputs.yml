@@ -21,7 +21,7 @@ jobs:
           extra-conf: |
             access-tokens = github.com=${{ secrets.ACCESS_TOKEN }}
 
-      - uses: DeterminateSystems/magic-nix-cache-action@v3
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
 
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v21
