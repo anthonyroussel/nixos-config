@@ -1,5 +1,9 @@
 # Partitioning SSD
 
+## Change SATA Operation in Firmware Setup
+
+⚠️ Disable Intel® Rapid Storage Technology (aka. Fake RAID) in UEFI Firmware Setup, and select **AHCI** instead.
+
 ## Create the partition table
 
 ```bash
@@ -35,11 +39,10 @@ cryptsetup luksFormat /dev/nvme0n1p2
 Then generate the recovery key for the LUKS partition (just in case of lost password):
 
 ```console
-dd if=/dev/random of=luks-nvme0n1p2.key bs=4096 count=1
-cryptsetup luksAddKey /dev/nvme0n1p2 luks-nvme0n1p2.key
+systemd-cryptenroll --recovery-key /dev/nvme0n1p2
 ```
 
-:warning: Store the LUKS recovery key in a safe location.
+:warning: Store the recovery key in a safe location.
 
 Same for the LUKS header:
 
