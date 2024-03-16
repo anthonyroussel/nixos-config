@@ -1,4 +1,11 @@
-{ inputs, config, lib, sops, pkgs, ... }:
+{
+  inputs,
+  config,
+  lib,
+  sops,
+  pkgs,
+  ...
+}:
 
 {
   users = {
@@ -10,7 +17,8 @@
         description = "Anthony Roussel";
 
         # Enable ‘sudo’ for the user.
-        extraGroups = [ "wheel" ]
+        extraGroups =
+          [ "wheel" ]
           ++ lib.optionals config.networking.networkmanager.enable [ "networkmanager" ]
           ++ lib.optionals config.security.tpm2.enable [ "tss" ]
           ++ lib.optionals config.virtualisation.libvirtd.enable [ "libvirtd" ]

@@ -17,24 +17,29 @@
       }
     ];
 
-    config = { config, pkgs, ... }: {
-      services.mailhog = {
-        enable = true;
-      };
-
-      system.stateVersion = "23.11";
-
-      networking = {
-        firewall = {
+    config =
+      { config, pkgs, ... }:
+      {
+        services.mailhog = {
           enable = true;
-          allowedTCPPorts = [ 1025 8025 ];
         };
 
-        # Use systemd-resolved inside the container
-        useHostResolvConf = lib.mkForce false;
-      };
+        system.stateVersion = "23.11";
 
-      services.resolved.enable = true;
-    };
+        networking = {
+          firewall = {
+            enable = true;
+            allowedTCPPorts = [
+              1025
+              8025
+            ];
+          };
+
+          # Use systemd-resolved inside the container
+          useHostResolvConf = lib.mkForce false;
+        };
+
+        services.resolved.enable = true;
+      };
   };
 }

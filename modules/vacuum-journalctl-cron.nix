@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   cfg = config.rsl.vacuum-journalctl-cron;
-
-in {
+in
+{
   meta = {
     # description = "Cron to vacuum journalctl logs";
     maintainers = with lib; [ maintainers.anthonyroussel ];

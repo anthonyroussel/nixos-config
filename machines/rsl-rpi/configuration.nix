@@ -1,18 +1,26 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/nix
-      ../../modules/sops
-      ../../users/aroussel.nix
-      ../../users/root.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/nix
+    ../../modules/sops
+    ../../users/aroussel.nix
+    ../../users/root.nix
+  ];
 
   boot = {
     consoleLogLevel = 7;
-    kernelParams = ["console=ttyS0,115200n8" "console=ttyAMA0,115200n8" "console=tty0"];
+    kernelParams = [
+      "console=ttyS0,115200n8"
+      "console=ttyAMA0,115200n8"
+      "console=tty0"
+    ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
@@ -23,15 +31,18 @@
     enable = true;
     flake = "github:anthonyroussel/nixos-config#rsl-rpi";
     allowReboot = true;
-    flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "--commit-lock-file"
+    ];
   };
 
   # Workaround: https://github.com/NixOS/nixpkgs/issues/154163
   # modprobe: FATAL: Module sun4i-drm not found in directory
   nixpkgs.overlays = [
     (final: super: {
-      makeModulesClosure = x:
-        super.makeModulesClosure (x // {allowMissing = true;});
+      makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
     })
   ];
 

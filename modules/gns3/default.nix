@@ -1,7 +1,13 @@
-{ config, lib, nur, inputs, ... }:
+{
+  config,
+  lib,
+  nur,
+  inputs,
+  ...
+}:
 
 {
-  sops.secrets."gns3/password" = {};
+  sops.secrets."gns3/password" = { };
 
   programs.gns3-gui.enable = true;
 
@@ -23,38 +29,40 @@
       }
     ];
 
-    specialArgs = { inherit (inputs) nur; };
-
-    config = { config, pkgs, ... }: {
-      imports = [
-        nur.nixosModules.gns3-server
-      ];
-
-      services.gns3-server = {
-        enable = true;
-        dynamips.enable = true;
-        ubridge.enable = true;
-        vpcs.enable = true;
-        auth = {
-          enable = true;
-          user = "gns3";
-          passwordFile = "/run/secrets/gns3-password";
-        };
-      };
-
-      system.stateVersion = "23.11";
-
-      networking = {
-        firewall = {
-          enable = true;
-          allowedTCPPorts = [ 3080 ];
-        };
-
-        # Use systemd-resolved inside the container
-        useHostResolvConf = lib.mkForce false;
-      };
-
-      services.resolved.enable = true;
+    specialArgs = {
+      inherit (inputs) nur;
     };
+
+    config =
+      { config, pkgs, ... }:
+      {
+        imports = [ nur.nixosModules.gns3-server ];
+
+        services.gns3-server = {
+          enable = true;
+          dynamips.enable = true;
+          ubridge.enable = true;
+          vpcs.enable = true;
+          auth = {
+            enable = true;
+            user = "gns3";
+            passwordFile = "/run/secrets/gns3-password";
+          };
+        };
+
+        system.stateVersion = "23.11";
+
+        networking = {
+          firewall = {
+            enable = true;
+            allowedTCPPorts = [ 3080 ];
+          };
+
+          # Use systemd-resolved inside the container
+          useHostResolvConf = lib.mkForce false;
+        };
+
+        services.resolved.enable = true;
+      };
   };
 }

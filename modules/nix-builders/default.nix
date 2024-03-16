@@ -1,13 +1,11 @@
 { config, ... }:
 
 {
-  sops.secrets."nix-builders/darwin-build-box-ssh-key" = {};
+  sops.secrets."nix-builders/darwin-build-box-ssh-key" = { };
 
-  programs.ssh.knownHosts."build-box.nix-community.org".publicKey =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
+  programs.ssh.knownHosts."build-box.nix-community.org".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIElIQ54qAy7Dh63rBudYKdbzJHrrbrrMXLYl7Pkmk88H";
 
-  programs.ssh.knownHosts."darwin-build-box.nix-community.org".publicKey =
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDDnaVD9TZDJKSpiJQg0qYs0WUHFq3Ur5ijm/kHOY91N";
+  programs.ssh.knownHosts."darwin-build-box.nix-community.org".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDDnaVD9TZDJKSpiJQg0qYs0WUHFq3Ur5ijm/kHOY91N";
 
   nix = {
     distributedBuilds = true;
@@ -18,7 +16,10 @@
         sshUser = "anthonyroussel";
         sshKey = config.sops.secrets."nix-builders/darwin-build-box-ssh-key".path;
         supportedFeatures = [ "big-parallel" ];
-        systems = [ "aarch64-darwin" "x86_64-darwin" ];
+        systems = [
+          "aarch64-darwin"
+          "x86_64-darwin"
+        ];
       }
     ];
   };

@@ -1,13 +1,18 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      ../../modules/nix
-      ../../modules/sops
-      ../../users/aroussel.nix
-      ../../users/root.nix
-    ];
+  imports = [
+    ../../modules/nix
+    ../../modules/sops
+    ../../users/aroussel.nix
+    ../../users/root.nix
+  ];
 
   amazonImage = {
     name = "rsl-cloud_amazon-image-${config.system.nixos.label}-${pkgs.stdenv.hostPlatform.system}";

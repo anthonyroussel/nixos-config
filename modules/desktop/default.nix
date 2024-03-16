@@ -7,9 +7,7 @@
   # Install xdg-desktop-portal for wlroots
   xdg.portal = {
     wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
   };
 
   # Enable the X11 windowing system.

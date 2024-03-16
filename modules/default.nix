@@ -1,3 +1,1 @@
-{
-  vacuum-journalctl-cron = import ./vacuum-journalctl-cron.nix;
-}
+{ vacuum-journalctl-cron = import ./vacuum-journalctl-cron.nix; }

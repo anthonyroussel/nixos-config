@@ -41,7 +41,10 @@
             content = {
               type = "btrfs";
               mountpoint = "/home";
-              extraArgs = [ "-L" "home" ];
+              extraArgs = [
+                "-L"
+                "home"
+              ];
               subvolumes = {
                 "/aroussel" = {
                   mountpoint = "/home/aroussel";
@@ -55,7 +58,10 @@
               type = "btrfs";
               mountpoint = "/";
               mountOptions = [ "defaults" ];
-              extraArgs = [ "-L" "nixos" ];
+              extraArgs = [
+                "-L"
+                "nixos"
+              ];
               subvolumes = {
                 "/nix" = {
                   mountOptions = [ "noatime" ];

@@ -1,8 +1,6 @@
 { pkgs, ... }:
 {
-  services.udev.packages = [
-    pkgs.yubikey-personalization
-  ];
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 
   # Enable PCSCD daemon (Smart Card)
   services.pcscd = {

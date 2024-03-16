@@ -2,42 +2,49 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, nixos-hardware, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  nixos-hardware,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
 
-      ../../users/aroussel.nix
-      ./aroussel.nix
+    ../../users/aroussel.nix
+    ./aroussel.nix
 
-      ../../users/root.nix
-      ../../modules/desktop
-      ../../modules/firewall
-      ../../modules/gns3
-      ../../modules/libvirt
-      ../../modules/mailhog
-      ../../modules/nix
-      ../../modules/nix-builders
-      ../../modules/postgres
-      ../../modules/sops
-      ../../modules/sound
-      ../../modules/stylix
-      ../../modules/tlp
-      ../../modules/tpm
-      ../../modules/yubikey
-      ../../modules/wireless
-      ./opengl.nix
-      ./udev.nix
+    ../../users/root.nix
+    ../../modules/desktop
+    ../../modules/firewall
+    ../../modules/gns3
+    ../../modules/libvirt
+    ../../modules/mailhog
+    ../../modules/nix
+    ../../modules/nix-builders
+    ../../modules/postgres
+    ../../modules/sops
+    ../../modules/sound
+    ../../modules/stylix
+    ../../modules/tlp
+    ../../modules/tpm
+    ../../modules/yubikey
+    ../../modules/wireless
+    ./opengl.nix
+    ./udev.nix
 
-      # https://github.com/NixOS/nixos-hardware
-      #
-      "${inputs.nixos-hardware}/dell/xps/15-9560"
-      "${inputs.nixos-hardware}/common/pc/laptop/ssd"
-      "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
-    ];
+    # https://github.com/NixOS/nixos-hardware
+    #
+    "${inputs.nixos-hardware}/dell/xps/15-9560"
+    "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
+    "${inputs.nixos-hardware}/common/pc/laptop/ssd"
+    "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
+  ];
 
   # Use the Grub2 EFI boot loader.
   boot = {
@@ -130,12 +137,14 @@
   ];
 
   # Allow installation of unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "Oracle_VM_VirtualBox_Extension_Pack"
-    "corefonts"
-    "nvidia-settings"
-    "nvidia-x11"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "Oracle_VM_VirtualBox_Extension_Pack"
+      "corefonts"
+      "nvidia-settings"
+      "nvidia-x11"
+    ];
   nixpkgs.config.nvidia.acceptLicense = true;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -194,5 +203,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }

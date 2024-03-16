@@ -1,36 +1,47 @@
-{ environment, config, sops, ... }:
+{
+  environment,
+  config,
+  sops,
+  ...
+}:
 
 let
-  mkWirelessProfile = { uuid, ssid, psk }: {
-    connection = {
-      inherit uuid;
-      id = ssid;
-      type = "wifi";
-      interface-name = "wlan";
-      permissions = "";
+  mkWirelessProfile =
+    {
+      uuid,
+      ssid,
+      psk,
+    }:
+    {
+      connection = {
+        inherit uuid;
+        id = ssid;
+        type = "wifi";
+        interface-name = "wlan";
+        permissions = "";
+      };
+      wifi = {
+        inherit ssid;
+        mac-address-blacklist = "";
+        mode = "infrastructure";
+      };
+      wifi-security = {
+        inherit psk;
+        auth-alg = "open";
+        key-mgmt = "wpa-psk";
+      };
+      ipv4 = {
+        dns-search = "";
+        method = "auto";
+      };
+      ipv6 = {
+        addr-gen-mode = "stable-privacy";
+        dns-search = "";
+        method = "auto";
+      };
     };
-    wifi = {
-      inherit ssid;
-      mac-address-blacklist = "";
-      mode = "infrastructure";
-    };
-    wifi-security = {
-      inherit psk;
-      auth-alg = "open";
-      key-mgmt = "wpa-psk";
-    };
-    ipv4 = {
-      dns-search = "";
-      method = "auto";
-    };
-    ipv6 = {
-      addr-gen-mode = "stable-privacy";
-      dns-search = "";
-      method = "auto";
-    };
-  };
-
-in {
+in
+{
   sops.secrets."networkmanager/Livebox-6296/psk" = { };
   sops.secrets."networkmanager/Livebox-D850/psk" = { };
   sops.secrets."networkmanager/Livebox-E3F0/psk" = { };

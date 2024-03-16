@@ -19,9 +19,7 @@
         "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-      trusted-substituters = [
-        "https://nix-cache.roussel.dev"
-      ];
+      trusted-substituters = [ "https://nix-cache.roussel.dev" ];
       substituters = [
         "https://cache.nixos.org"
         "https://nixpkgs-wayland.cachix.org"

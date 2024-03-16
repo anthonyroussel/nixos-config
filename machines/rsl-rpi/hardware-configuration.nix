@@ -1,10 +1,13 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   fileSystems = {
     "/" = {
@@ -19,7 +22,10 @@
       # Alternatively, this could be removed from the configuration.
       # The filesystem is not needed at runtime, it could be treated
       # as an opaque blob instead of a discrete FAT32 filesystem.
-      options = [ "nofail" "noauto" ];
+      options = [
+        "nofail"
+        "noauto"
+      ];
     };
   };
 

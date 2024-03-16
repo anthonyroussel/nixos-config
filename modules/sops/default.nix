@@ -1,4 +1,9 @@
-{ config, nix-secrets, pkgs, ... }:
+{
+  config,
+  nix-secrets,
+  pkgs,
+  ...
+}:
 
 {
   environment.systemPackages = [
