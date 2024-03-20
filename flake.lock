@@ -359,11 +359,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710770817,
-        "narHash": "sha256-o0+3wQZkLoTiDv+GD9J3FxEHLtrARsa12NznuPMwWzo=",
+        "lastModified": 1710838255,
+        "narHash": "sha256-HMLUMsFfaQkf4zzfWU6D7A0jwlHTqbtxOBMLkn1enno=",
         "owner": "anthonyroussel",
         "repo": "nur-packages",
-        "rev": "b7c7e336a471fd98f8dea9bdafb60d84117364a3",
+        "rev": "4c48cf2c10e4a8386b753a5aa9ef6bf525fe9ef0",
         "type": "github"
       },
       "original": {
