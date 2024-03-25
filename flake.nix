@@ -29,7 +29,7 @@
       flake = false;
     };
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:danth/stylix?ref=release-23.11";
     };
   };
 
