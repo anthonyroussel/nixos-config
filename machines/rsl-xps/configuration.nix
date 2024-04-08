@@ -28,6 +28,7 @@
     ../../modules/nix
     ../../modules/nix-builders
     ../../modules/postgres
+    ../../modules/printers
     ../../modules/sops
     ../../modules/sound
     ../../modules/stylix
