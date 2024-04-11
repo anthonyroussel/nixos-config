@@ -27,6 +27,7 @@
     ../../modules/mailhog
     ../../modules/nix
     ../../modules/nix-builders
+    ../../modules/polkit
     ../../modules/postgres
     ../../modules/printers
     ../../modules/sops
