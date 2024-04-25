@@ -35,15 +35,15 @@
 
   outputs =
     {
-      nixpkgs,
-      nixos-hardware,
-      sops-nix,
-      nixos-generators,
       home-manager,
-      nur,
       nix-secrets,
-      stylix,
+      nixos-generators,
+      nixos-hardware,
+      nixpkgs,
+      nur,
       self,
+      sops-nix,
+      stylix,
       ...
     }@inputs:
     rec {
@@ -54,9 +54,10 @@
         system = "x86_64-linux";
         modules = [
           nixosModules.vacuum-journalctl-cron
+          nur.nixosModules.gns3-gui
+          nur.nixosModules.gns3-server
           sops-nix.nixosModules.sops
           stylix.nixosModules.stylix
-          nur.nixosModules.gns3-gui
           ./machines/rsl-xps/configuration.nix
         ];
         specialArgs = {
@@ -89,8 +90,8 @@
         system = "x86_64-linux";
         modules = [
           nixosModules.vacuum-journalctl-cron
-          sops-nix.nixosModules.sops
           nur.nixosModules.gns3-server
+          sops-nix.nixosModules.sops
           ./machines/rsl-cloud/configuration.nix
         ];
         format = "amazon";
@@ -110,9 +111,9 @@
         rsl-cloud = nixos-generators.nixosGenerate {
           system = "x86_64-linux";
           modules = [
+            nixos-generators.nixosModules.amazon
             nixosModules.vacuum-journalctl-cron
             sops-nix.nixosModules.sops
-            nixos-generators.nixosModules.amazon
             { amazonImage.sizeMB = 3 * 1024; }
             ./machines/rsl-cloud/configuration.nix
           ];
