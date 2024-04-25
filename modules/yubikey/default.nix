@@ -1,15 +1,23 @@
-{ pkgs, ... }:
-{
-  services.udev.packages = [ pkgs.yubikey-personalization ];
+{ config, lib, pkgs,... }:
 
-  # Enable PCSCD daemon (Smart Card)
-  services.pcscd = {
-    enable = true;
+let
+  cfg = config.rsl.yubikey;
+
+in {
+  options.rsl.yubikey.enable = lib.mkEnableOption "custom yubikey";
+
+  config = lib.mkIf cfg.enable {
+    services.udev.packages = [ pkgs.yubikey-personalization ];
+
+    # Enable PCSCD daemon (Smart Card)
+    services.pcscd = {
+      enable = true;
+    };
+
+    environment.systemPackages = with pkgs; [
+      yubikey-manager
+      pcsclite
+      pcsctools
+    ];
   };
-
-  environment.systemPackages = with pkgs; [
-    yubikey-manager
-    pcsclite
-    pcsctools
-  ];
 }

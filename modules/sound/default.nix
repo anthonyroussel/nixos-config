@@ -1,14 +1,23 @@
-{
-  # Enable sound.
-  sound.enable = true;
+{ config, lib, ... }:
 
-  # Disable pulseaudio
-  hardware.pulseaudio.enable = false;
+let
+  cfg = config.rsl.sound;
 
-  # And use pipewire instead for Wayland
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+in {
+  options.rsl.sound.enable = lib.mkEnableOption "custom sound";
+
+  config = lib.mkIf cfg.enable {
+    # Enable sound.
+    sound.enable = true;
+
+    # Disable pulseaudio
+    hardware.pulseaudio.enable = false;
+
+    # And use pipewire instead for Wayland
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
   };
 }

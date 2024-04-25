@@ -1,0 +1,17 @@
+[
+  ./desktop
+  ./firewall
+  ./gns3
+  ./libvirt
+  ./mailhog
+  ./nix-builders
+  ./polkit
+  ./postgres
+  ./printers
+  ./sound
+  ./stylix
+  ./tpm
+  ./vacuum-journalctl-cron.nix
+  ./yubikey
+  ./wireless
+]

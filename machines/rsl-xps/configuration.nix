@@ -20,23 +20,9 @@
     ./aroussel.nix
 
     ../../users/root.nix
-    ../../modules/desktop
-    ../../modules/firewall
-    ../../modules/gns3
-    ../../modules/libvirt
-    ../../modules/mailhog
     ../../modules/nix
-    ../../modules/nix-builders
-    ../../modules/polkit
-    ../../modules/postgres
-    ../../modules/printers
     ../../modules/sops
-    ../../modules/sound
-    ../../modules/stylix
     ../../modules/tlp
-    ../../modules/tpm
-    ../../modules/yubikey
-    ../../modules/wireless
     ./opengl.nix
     ./packages.nix
     ./udev.nix
@@ -172,6 +158,18 @@
   rsl = {
     desktop.enable = true;
     firewall.enable = true;
+    gns3.enable = true;
+    libvirt.enable = true;
+    mailhog.enable = true;
+    nix-builders.enable = true;
+    polkit.enable = true;
+    postgres.enable = true;
+    printers.enable = true;
+    sound.enable = true;
+    stylix.enable = true;
+    tpm.enable = true;
+    wireless.enable = true;
+    yubikey.enable = true;
 
     # Clean logs older than 15d
     vacuum-journalctl-cron.enable = true;

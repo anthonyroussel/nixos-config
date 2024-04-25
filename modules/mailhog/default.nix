@@ -1,45 +1,52 @@
 { config, lib, ... }:
 
-{
-  containers.mailhog = {
-    autoStart = true;
+let
+  cfg = config.rsl.mailhog;
 
-    forwardPorts = [
-      {
-        protocol = "tcp";
-        hostPort = 1025;
-        containerPort = 1025;
-      }
-      {
-        protocol = "tcp";
-        hostPort = 8025;
-        containerPort = 8025;
-      }
-    ];
+in {
+  options.rsl.mailhog.enable = lib.mkEnableOption "custom mailhog";
 
-    config =
-      { config, pkgs, ... }:
-      {
-        services.mailhog = {
-          enable = true;
-        };
+  config = lib.mkIf cfg.enable {
+    containers.mailhog = {
+      autoStart = true;
 
-        system.stateVersion = "23.11";
+      forwardPorts = [
+        {
+          protocol = "tcp";
+          hostPort = 1025;
+          containerPort = 1025;
+        }
+        {
+          protocol = "tcp";
+          hostPort = 8025;
+          containerPort = 8025;
+        }
+      ];
 
-        networking = {
-          firewall = {
+      config =
+        { config, pkgs, ... }:
+        {
+          services.mailhog = {
             enable = true;
-            allowedTCPPorts = [
-              1025
-              8025
-            ];
           };
 
-          # Use systemd-resolved inside the container
-          useHostResolvConf = lib.mkForce false;
-        };
+          system.stateVersion = "23.11";
 
-        services.resolved.enable = true;
-      };
+          networking = {
+            firewall = {
+              enable = true;
+              allowedTCPPorts = [
+                1025
+                8025
+              ];
+            };
+
+            # Use systemd-resolved inside the container
+            useHostResolvConf = lib.mkForce false;
+          };
+
+          services.resolved.enable = true;
+        };
+    };
   };
 }

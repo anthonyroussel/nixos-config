@@ -1,60 +1,67 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
-{
-  containers.postgres = {
-    autoStart = true;
+let
+  cfg = config.rsl.postgres;
 
-    forwardPorts = [
-      {
-        protocol = "tcp";
-        hostPort = 5432;
-        containerPort = 5432;
-      }
-    ];
+in {
+  options.rsl.postgres.enable = lib.mkEnableOption "custom postgres";
 
-    bindMounts = {
-      "/var/lib/postgresql" = {
-        hostPath = "/var/lib/postgresql";
-        isReadOnly = false;
-      };
-    };
+  config = lib.mkIf cfg.enable {
+    containers.postgres = {
+      autoStart = true;
 
-    config =
-      { config, pkgs, ... }:
-      {
-        services.postgresql = {
-          enable = true;
-          package = pkgs.postgresql_16;
-          authentication = ''
-            host lafourmiliere lafourmiliere all trust
-          '';
-          ensureDatabases = [ "lafourmiliere" ];
-          ensureUsers = [
-            {
-              name = "lafourmiliere";
-              ensureDBOwnership = true;
-              ensureClauses = {
-                superuser = true;
-                createrole = true;
-                createdb = true;
-              };
-            }
-          ];
+      forwardPorts = [
+        {
+          protocol = "tcp";
+          hostPort = 5432;
+          containerPort = 5432;
+        }
+      ];
+
+      bindMounts = {
+        "/var/lib/postgresql" = {
+          hostPath = "/var/lib/postgresql";
+          isReadOnly = false;
         };
+      };
 
-        system.stateVersion = "23.11";
-
-        networking = {
-          firewall = {
+      config =
+        { config, pkgs, ... }:
+        {
+          services.postgresql = {
             enable = true;
-            allowedTCPPorts = [ 5432 ];
+            package = pkgs.postgresql_16;
+            authentication = ''
+              host lafourmiliere lafourmiliere all trust
+            '';
+            ensureDatabases = [ "lafourmiliere" ];
+            ensureUsers = [
+              {
+                name = "lafourmiliere";
+                ensureDBOwnership = true;
+                ensureClauses = {
+                  superuser = true;
+                  createrole = true;
+                  createdb = true;
+                };
+              }
+            ];
           };
 
-          # Use systemd-resolved inside the container
-          useHostResolvConf = lib.mkForce false;
-        };
+          system.stateVersion = "23.11";
 
-        services.resolved.enable = true;
-      };
+          networking = {
+            firewall = {
+              enable = true;
+              allowedTCPPorts = [ 5432 ];
+            };
+
+            # Use systemd-resolved inside the container
+            useHostResolvConf = lib.mkForce false;
+          };
+
+          services.resolved.enable = true;
+        };
+    };
   };
 }
