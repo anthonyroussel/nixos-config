@@ -168,8 +168,14 @@
   # Install Podman
   virtualisation.podman.enable = true;
 
-  # Clean logs older than 15d
-  rsl.vacuum-journalctl-cron.enable = true;
+  # Custom modules
+  rsl = {
+    desktop.enable = true;
+    firewall.enable = true;
+
+    # Clean logs older than 15d
+    vacuum-journalctl-cron.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -1,35 +1,26 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  # Enable dconf
-  programs.dconf.enable = true;
+let
+  cfg = config.rsl.desktop;
 
-  # Install xdg-desktop-portal for wlroots
-  xdg.portal = {
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+in {
+  options.rsl.desktop.enable = lib.mkEnableOption "custom desktop";
+
+  config = lib.mkIf cfg.enable {
+    # Enable dconf
+    programs.dconf.enable = true;
+
+    # Enable the X11 windowing system.
+    services.xserver = {
+      enable = true;
+
+      # Configure keymap in X11
+      layout = "fr";
+
+      # Use SDDM and Xfce Plasma
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
+      desktopManager.xfce.enable = true;
+    };
   };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-
-    # Configure keymap in X11
-    layout = "fr";
-
-    # Use SDDM and Xfce Plasma
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    desktopManager.xfce.enable = true;
-  };
-
-  # Required to run sway as desktop manager
-  security.polkit.enable = true;
-
-  # Enable swaylock
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
 }
