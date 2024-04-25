@@ -113,31 +113,6 @@
   # Include ~/bin/ in $PATH.
   environment.homeBinInPath = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    bash-completion
-    cachix
-    corefonts
-    cryptsetup
-    curl
-    dejavu_fonts
-    dig
-    efibootmgr
-    gnupg
-    home-manager
-    htop
-    ntfs3g
-    openssl
-    pciutils
-    pinentry
-    pinentry-curses
-    udev
-    usbutils
-    vim
-    wget
-  ];
-
   # Allow installation of unfree packages
   nixpkgs.config.allowUnfreePredicate =
     pkg:
