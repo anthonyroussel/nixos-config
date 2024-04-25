@@ -31,6 +31,7 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/4b74a56a-e067-4e3d-8b07-2b8985358a1a";
     fsType = "btrfs";
+    options = [ "noauto" ];
   };
 
   fileSystems."/home/aroussel" = {
@@ -52,6 +53,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/1F6C-9445";
     fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" "defaults" ];
   };
 
   swapDevices = [ ];
