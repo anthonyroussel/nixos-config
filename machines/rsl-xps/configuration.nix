@@ -52,6 +52,7 @@
   # Use the Grub2 EFI boot loader.
   boot = {
     blacklistedKernelModules = [ "mei" "mei_me" "mei_wdt" ];
+    kernelParams = [ "quiet" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -69,6 +70,7 @@
         '';
       };
     };
+    plymouth.enable = true;
   };
 
   # LUKS-encrypted LVM partition
