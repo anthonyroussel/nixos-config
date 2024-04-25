@@ -36,5 +36,6 @@
     };
 
     targets.grub.enable = false;
+    targets.plymouth.enable = false;
   };
 }
