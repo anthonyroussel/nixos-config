@@ -20,6 +20,7 @@
     pciutils
     pinentry
     pinentry-curses
+    sbctl
     udev
     usbutils
     vim
