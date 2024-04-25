@@ -54,31 +54,23 @@
     blacklistedKernelModules = [ "mei" "mei_me" "mei_wdt" ];
     kernelParams = [ "quiet" ];
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
-      grub = {
-        enable = true;
-        device = "nodev";
-        useOSProber = true;
-        efiSupport = true;
-        enableCryptodisk = true;
-        extraEntries = ''
-          menuentry "System setup" {
-            fwsetup
-          }
-        '';
-      };
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
     };
     plymouth.enable = true;
   };
 
   # LUKS-encrypted LVM partition
-  boot.initrd.luks.devices = {
-    pool2 = {
-      device = "/dev/disk/by-uuid/5d329e1e-39c2-46a8-88c0-01cf101ddc82";
-      preLVM = true;
-      fallbackToPassword = true;
+  # See https://github.com/NixOS/nixpkgs/blob/master/nixos/doc/manual/configuration/luks-file-systems.section.md
+  boot.initrd = {
+    systemd.enable = true;
+    luks = {
+      devices = {
+        pool2 = {
+          device = "/dev/disk/by-uuid/5d329e1e-39c2-46a8-88c0-01cf101ddc82";
+          preLVM = true;
+        };
+      };
     };
   };
 
