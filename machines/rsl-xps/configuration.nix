@@ -38,6 +38,7 @@
     ../../modules/yubikey
     ../../modules/wireless
     ./opengl.nix
+    ./packages.nix
     ./udev.nix
 
     # https://github.com/NixOS/nixos-hardware
