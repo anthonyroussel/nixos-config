@@ -12,10 +12,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nur = {
       url = "github:anthonyroussel/nur-packages";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +33,6 @@
     {
       home-manager,
       nix-secrets,
-      nixos-generators,
       nixos-hardware,
       nixpkgs,
       nur,
@@ -84,45 +79,6 @@
       };
 
       images.rsl-rpi = nixosConfigurations.rsl-rpi.config.system.build.sdImage;
-
-      # rsl-cloud
-      nixosConfigurations.rsl-cloud = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        modules = [
-          nixosModules.vacuum-journalctl-cron
-          nur.nixosModules.gns3-server
-          sops-nix.nixosModules.sops
-          ./machines/rsl-cloud/configuration.nix
-        ];
-        format = "amazon";
-        specialArgs = {
-          inherit inputs system nix-secrets;
-        };
-      };
-
-      # DigitalOcean NixOS image generator
-      packages.x86_64-linux = {
-        digitalocean = nixos-generators.nixosGenerate {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          format = "do";
-        };
-
-        # nix build .#rsl-cloud
-        rsl-cloud = nixos-generators.nixosGenerate {
-          system = "x86_64-linux";
-          modules = [
-            nixos-generators.nixosModules.amazon
-            nixosModules.vacuum-journalctl-cron
-            sops-nix.nixosModules.sops
-            { amazonImage.sizeMB = 3 * 1024; }
-            ./machines/rsl-cloud/configuration.nix
-          ];
-          format = "amazon";
-          specialArgs = {
-            inherit nix-secrets;
-          };
-        };
-      };
 
       defaultPackage.x86_64-linux = nixosConfigurations.rsl-xps.config.system.build.toplevel;
       legacyPackages.x86_64-linux = nixosConfigurations.rsl-xps.pkgs;
