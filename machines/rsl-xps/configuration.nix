@@ -159,8 +159,10 @@
   };
 
   # Disable the Avahi mDNS daemon (useless).
+  # Required for Chromecast
   services.avahi = {
-    enable = false;
+    enable = true;
+    nssmdns = true;
   };
 
   # Install Podman
