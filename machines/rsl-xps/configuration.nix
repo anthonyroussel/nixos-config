@@ -51,6 +51,7 @@
 
   # Use the Grub2 EFI boot loader.
   boot = {
+    blacklistedKernelModules = [ "mei" "mei_me" "mei_wdt" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
