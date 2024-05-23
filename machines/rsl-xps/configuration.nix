@@ -148,7 +148,7 @@
   # Required for Chromecast
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
   };
 
   # Install Podman

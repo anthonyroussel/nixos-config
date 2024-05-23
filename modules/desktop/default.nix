@@ -10,17 +10,18 @@ in {
     # Enable dconf
     programs.dconf.enable = true;
 
+    # Use SDDM as Desktop Manager.
+    services.displayManager.sddm.enable = true;
+
     # Enable the X11 windowing system.
     services.xserver = {
       enable = true;
 
       # Configure keymap in X11
-      layout = "fr";
+      xkb.layout = "fr";
 
-      # Use SDDM and Xfce Plasma
-      displayManager.sddm.enable = true;
+      # Use Xfce & Plasma
       desktopManager.plasma5.enable = true;
-      desktopManager.xfce.enable = true;
     };
   };
 }

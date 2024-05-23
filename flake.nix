@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "nixpkgs/nixos-23.11";
+      url = "nixpkgs/nixos-24.05";
     };
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-23.11";
+      url = "github:nix-community/home-manager?ref=release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-secrets = {
@@ -25,7 +25,8 @@
       flake = false;
     };
     stylix = {
-      url = "github:danth/stylix?ref=release-23.11";
+      url = "github:danth/stylix";
+      # url = "github:danth/stylix?ref=release-24.05";
     };
   };
 
@@ -49,7 +50,7 @@
         system = "x86_64-linux";
         modules = (import ./modules/module-list.nix) ++ [
           nur.nixosModules.gns3-gui
-          nur.nixosModules.gns3-server
+          # nur.nixosModules.gns3-server
           sops-nix.nixosModules.sops
           stylix.nixosModules.stylix
           ./machines/rsl-xps/configuration.nix
