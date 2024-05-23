@@ -3,11 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 {
-  config,
-  pkgs,
-  lib,
   inputs,
-  nixos-hardware,
+  lib,
+  pkgs,
   ...
 }:
 

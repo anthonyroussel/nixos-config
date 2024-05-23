@@ -1,8 +1,6 @@
 {
-  environment,
   config,
   lib,
-  sops,
   ...
 }:
 

@@ -32,12 +32,9 @@
 
   outputs =
     {
-      home-manager,
       nix-secrets,
-      nixos-hardware,
       nixpkgs,
       nur,
-      self,
       sops-nix,
       stylix,
       ...

@@ -1,11 +1,4 @@
-{
-  inputs,
-  config,
-  lib,
-  sops,
-  pkgs,
-  ...
-}:
+{ config, ... }:
 
 {
   sops.secrets."passwords/aroussel" = {
