@@ -30,7 +30,7 @@
     "${inputs.nixos-hardware}/dell/xps/15-9560"
     "${inputs.nixos-hardware}/dell/xps/15-9560/nvidia"
     "${inputs.nixos-hardware}/common/pc/laptop/ssd"
-    "${inputs.nixos-hardware}/common/cpu/intel/kaby-lake"
+    "${inputs.nixos-hardware}/common/gpu/intel/kaby-lake"
   ];
 
   # Use the Grub2 EFI boot loader.
