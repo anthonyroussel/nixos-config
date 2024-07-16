@@ -41,7 +41,6 @@
     rec {
       nixosModules = import ./modules;
 
-      # rsl-xps
       nixosConfigurations.rsl-xps = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         modules = (import ./modules/module-list.nix) ++ [
@@ -61,7 +60,24 @@
         };
       };
 
-      # rsl-rpi
+      nixosConfigurations.rsl-ap = nixpkgs.lib.nixosSystem rec {
+        system = "x86_64-linux";
+        modules = (import ./modules/module-list.nix) ++ [
+          nur.nixosModules.gns3-gui
+          sops-nix.nixosModules.sops
+          stylix.nixosModules.stylix
+          ./machines/rsl-ap/configuration.nix
+        ];
+        specialArgs = {
+          inherit
+            inputs
+            system
+            nix-secrets
+            nur
+            ;
+        };
+      };
+
       nixosConfigurations.rsl-rpi = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = (import ./modules/module-list.nix) ++ [
